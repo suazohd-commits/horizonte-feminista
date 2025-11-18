@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizonte Feminista | Carteles</title>
+  <link rel="stylesheet" href="styles.css">
+  <link id="theme-style" rel="stylesheet" href="theme-light.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Horizonte Feminista</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="conceptos.html">Conceptos</a></li>
+      <li><a href="olas.html">Las Olas</a></li>
+      <li><a href="balance.html">Balance</a></li>
+      <li><a href="contacto.html">Participación</a></li>
+      <li><a href="posters.html" class="active">Carteles</a></li>
+    </ul>
+    <div class="right-controls">
+      <button id="theme-toggle" aria-label="Cambiar modo claro/oscuro">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-content" id="poster-gallery-section">
+    <p class="section-tag">Carteles de la Comunidad</p>
+    <h2>Catálogo colaborativo</h2>
+    <p class="section-description">Explora, inspírate y deja tu huella compartiendo tus carteles.</p>
+
+    <div class="gallery-cta">
+      <button class="btn primary-btn" id="cta-upload"><i class="fas fa-hand-peace"></i> Deja tu huella</button>
+      <input type="file" id="poster-file" accept="image/*" multiple hidden>
+    </div>
+
+    <div id="drop-zone" class="drop-zone" aria-label="Arrastra imágenes aquí para subir">
+      Arrastra y suelta tus carteles aquí o usa el botón "Deja tu huella".
+    </div>
+
+    <div id="poster-gallery" class="gallery-grid" aria-live="polite"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

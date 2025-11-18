@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Feminista | Las Olas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link id="theme-style" rel="stylesheet" href="theme-light.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Horizonte Feminista</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="conceptos.html">Conceptos</a></li>
+            <li><a href="olas.html" class="active">Las Olas</a></li>
+            <li><a href="balance.html">Balance</a></li>
+            <li><a href="contacto.html">Participación</a></li>
+            <li><a href="posters.html">Carteles</a></li>
+        </ul>
+        <div class="right-controls">
+            <button id="theme-toggle" aria-label="Cambiar modo claro/oscuro">
+                <i class="fas fa-moon"></i> 
+            </button>
+        </div>
+    </nav>
+
+    <section class="wave-details-section page-content">
+        <p class="section-tag">Evolución Histórica</p>
+        <h2>Un Recorrido por las Olas del Feminismo</h2>
+        <p class="section-description">
+            El feminismo es un movimiento complejo y en constante evolución, tradicionalmente dividido en "olas" para comprender sus etapas y objetivos principales.
+        </p>
+        <div class="view-toggle">
+            <button id="view-def" class="btn primary-btn small-btn">Definiciones</button>
+            <button id="view-timeline" class="btn secondary-btn small-btn">Línea de tiempo</button>
+        </div>
+        <div id="definitions-view">
+            <div class="wave-cards-container">
+                <div class="wave-card">
+                    <div class="wave-header">
+                        <h3>Primera Ola</h3>
+                        <span class="wave-icon">1ª</span>
+                    </div>
+                    <div class="wave-content">
+                        <p>
+                            Principalmente durante los siglos XVIII y XIX, esta ola se centró en la lucha por el derecho al voto (sufragismo) y la igualdad de derechos legales, especialmente en la propiedad y el acceso a la educación. Figuras como Mary Wollstonecraft y las sufragistas británicas y estadounidenses fueron clave.
+                        </p>
+                        <img src="https://livolet.com/wp-content/uploads/2024/05/movimiento-feminista-primera-ola.jpg" alt="Sufragistas marchando" style="width:100%; height:200px; object-fit:cover; margin-top:15px;">
+                    </div>
+                </div>
+
+                <div class="wave-card">
+                    <div class="wave-header">
+                        <h3>Segunda Ola</h3>
+                        <span class="wave-icon">2ª</span>
+                    </div>
+                    <div class="wave-content">
+                        <p>
+                            Desde la década de 1960 hasta los 80, esta ola expandió el foco más allá del sufragio para incluir cuestiones como la sexualidad, los derechos reproductivos, la igualdad en el lugar de trabajo, y la violencia doméstica. El lema "lo personal es político" fue central. Simone de Beauvoir y Betty Friedan son referentes.
+                        </p>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOwKEmQuj9DGBVu0cfJs0F59oRyNPdWawV3g&s" alt="Mujeres protestando en los 60-70" style="width:100%; height:200px; object-fit:cover; margin-top:15px;">
+                    </div>
+                </div>
+
+                <div class="wave-card">
+                    <div class="wave-header">
+                        <h3>Tercera Ola</h3>
+                        <span class="wave-icon">3ª</span>
+                    </div>
+                    <div class="wave-content">
+                        <p>
+                            A partir de los años 90, esta ola criticó el universalismo de las olas anteriores, enfocándose en la interseccionalidad de raza, clase y género, así como en la diversidad de experiencias de las mujeres. Explora la identidad, la sexualidad fluida y la cultura popular.
+                        </p>
+                        <img src="https://rincondelectura.net/wp-content/uploads/tercera-ola.jpg" alt="Mujeres jóvenes en un entorno diverso" style="width:100%; height:200px; object-fit:cover; margin-top:15px;">
+                    </div>
+                </div>
+
+                <div class="wave-card">
+                    <div class="wave-header">
+                        <h3>Cuarta Ola</h3>
+                        <span class="wave-icon">4ª</span>
+                    </div>
+                    <div class="wave-content">
+                        <p>
+                            Emergiendo alrededor de 2010, se caracteriza por el uso de las redes sociales y el activismo digital. Se centra fuertemente en la lucha contra la violencia machista, el acoso sexual (movimientos como #MeToo), la cultura de la violación, y la misoginia online.
+                        </p>
+                        <img src="https://www.comecso.com/wp-content/uploads/2024/10/pexels-anya-juarez-tenorio-227888521-16110854-1024x683.jpg" alt="Manifestación actual con pancartas" style="width:100%; height:200px; object-fit:cover; margin-top:15px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Línea de tiempo (embebida para evitar espacios vacíos) -->
+        <section id="timeline" class="timeline-section view-hidden">
+            <p class="section-tag">Vista Alternativa</p>
+            <h2>Línea de Tiempo de las Olas</h2>
+            <div class="timeline">
+                <div class="timeline-inner">
+                <div class="timeline-item">
+                    <div class="tl-point" style="background: var(--accent-2)"></div>
+                    <div class="tl-card">
+                        <h3>Primera Ola <span class="tl-year">S. XVIII–XIX</span></h3>
+                        <p>Sufragio, derechos legales y acceso a la educación. Convención de Seneca Falls (1848).</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="tl-point" style="background: var(--accent-1)"></div>
+                    <div class="tl-card">
+                        <h3>Segunda Ola <span class="tl-year">1960–1980</span></h3>
+                        <p>Lo personal es político: derechos reproductivos, igualdad laboral y lucha contra la violencia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="tl-point" style="background: var(--accent-3)"></div>
+                    <div class="tl-card">
+                        <h3>Tercera Ola <span class="tl-year">desde 1990</span></h3>
+                        <p>Interseccionalidad y diversidad de experiencias. Cuestiona el universalismo previo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="tl-point" style="background: var(--accent-4)"></div>
+                    <div class="tl-card">
+                        <h3>Cuarta Ola <span class="tl-year">desde 2010</span></h3>
+                        <p>Activismo digital y #MeToo; foco en violencia machista y misoginia online.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Mapa de hitos: debajo de la línea de tiempo -->
+    <section id="wave-map-section" class="page-content">
+        <p class="section-tag">Geografía Histórica</p>
+        <h2>Hitos Globales de las Cuatro Olas</h2>
+        <p class="section-description">
+            Explora los lugares clave donde surgieron o se consolidaron los movimientos y los principales logros de cada ola del feminismo.
+        </p>
+        <div id="feminist-map"></div>
+        <div id="map-legend" aria-label="Leyenda del mapa">
+            <h4>Leyenda por Ola</h4>
+            <div class="legend-list">
+                <div class="legend-item"><span class="dot" style="background: var(--accent-2)"></span><span>Primera Ola (Sufragio)</span></div>
+                <div class="legend-item"><span class="dot" style="background: var(--accent-1)"></span><span>Segunda Ola (Lo personal es político)</span></div>
+                <div class="legend-item"><span class="dot" style="background: var(--accent-3)"></span><span>Tercera Ola (Interseccionalidad)</span></div>
+                <div class="legend-item"><span class="dot" style="background: var(--accent-4)"></span><span>Cuarta Ola (#MeToo, Activismo Digital)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-grid">
+            <div class="footer-logo-col">
+                <div class="footer-logo">Horizonte Feminista</div>
+                <p>Creado Por: Angel Luis &copy; 2025</p>
+            </div>
+            <div class="footer-links-col">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conceptos.html">Conceptos</a></li>
+                    <li><a href="olas.html">Las Olas</a></li>
+                    <li><a href="balance.html">Balance</a></li>
+                    <li><a href="contacto.html">Participación</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact-col">
+                <h3>Contacto</h3>
+                <p>¿Listo para la acción?</p>
+                <a href="contacto.html" class="btn primary-btn">Regístrate Aquí</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="ai-widget-container">
+        <button id="floating-ai-button" aria-label="Abrir chat de IA">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div id="ai-chat-window" class="hidden">
+            <div class="chat-header">
+                <h3>Vera <span class="chat-badge">IA Feminista</span></h3>
+                <button id="close-chat-button" aria-label="Cerrar chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chat-messages">
+                <div class="message system-message">
+                    Hola! Soy tu asistente de IA. Pregúntame sobre cualquier concepto o etapa del feminismo que desees explorar.
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta..." required>
+                <button id="send-button" aria-label="Enviar mensaje">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        
+    <script>
+        // Definición de los puntos clave para cada ola
+        const WAVES_DATA = [
+            // Primera Ola (Antique Pink: accent-2)
+            { lat: 43.0039, lon: -76.9961, name: "Seneca Falls, EE. UU. (1848)", wave: "1ª Ola", color: 'var(--accent-2)', description: "Sitio de la primera Convención por los Derechos de la Mujer." },
+            { lat: 51.5074, lon: 0.1278, name: "Londres, Reino Unido", wave: "1ª Ola", color: 'var(--accent-2)', description: "Centro del activismo de las sufragistas británicas." },
+            
+            // Segunda Ola (accent-1)
+            { lat: 40.7128, lon: -74.0060, name: "Nueva York, EE. UU. (1960s)", wave: "2ª Ola", color: 'var(--accent-1)', description: "Foco del resurgimiento del movimiento de liberación de la mujer." },
+            { lat: 19.4326, lon: -99.1332, name: "Ciudad de México, México (1975)", wave: "2ª Ola", color: 'var(--accent-1)', description: "Sede de la Conferencia Mundial de la Mujer de la ONU." },
+            
+            // Tercera Ola (accent-3)
+            { lat: 37.8715, lon: -122.2730, name: "Berkeley, EE. UU. (1990s)", wave: "3ª Ola", color: 'var(--accent-3)', description: "Centro para el desarrollo de la Interseccionalidad y el feminismo postestructuralista." },
+            
+            // Cuarta Ola (accent-4)
+            { lat: 40.4168, lon: -3.7038, name: "Madrid, España (8M)", wave: "4ª Ola", color: 'var(--accent-4)', description: "Grandes manifestaciones masivas en el Día Internacional de la Mujer." },
+            { lat: -34.6037, lon: -58.3816, name: "Buenos Aires, Argentina (#NiUnaMenos)", wave: "4ª Ola", color: 'var(--accent-4)', description: "Lanzamiento del movimiento contra el feminicidio en América Latina." }
+        ];
+
+        // Inicializar el mapa
+        const map = L.map('feminist-map').setView([20, 0], 2); // Centrado en una vista mundial (zoom 2)
+        window._feministMap = map; // Exponer para invalidar tamaño al alternar vistas
+
+        // Añadir una capa de mosaicos (tiles) de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Función para crear un icono de marcador personalizado (usando un círculo simple)
+        function createMarkerIcon(color) {
+            return L.circleMarker([0, 0], {
+                radius: 8,
+                fillColor: color,
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            });
+        }
+
+        // Añadir los marcadores al mapa
+        WAVES_DATA.forEach(data => {
+            // Usamos un L.circleMarker en lugar del L.marker estándar para tener más control sobre el color
+            const marker = L.circleMarker([data.lat, data.lon], {
+                radius: 8,
+                fillColor: data.color,
+                color: "#000", // Borde negro
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            }).addTo(map);
+            
+            // Añadir el Pop-up con la información
+            marker.bindPopup(`
+                <h4>${data.name}</h4>
+                <p><strong>Ola:</strong> ${data.wave}</p>
+                <p>${data.description}</p>
+            `);
+        });
+
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

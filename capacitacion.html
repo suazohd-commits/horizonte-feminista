@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Feminista | Plan de Capacitación</title>
+    <link rel="stylesheet" href="styles.css">
+    <link id="theme-style" rel="stylesheet" href="theme-light.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Horizonte Feminista</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="conceptos.html">Conceptos</a></li>
+            <li><a href="olas.html">Las Olas</a></li>
+            <li><a href="balance.html">Balance</a></li>
+            <li><a href="contacto.html">Participación</a></li>
+            <li><a href="posters.html">Carteles</a></li>
+        </ul>
+        <div class="right-controls">
+            <button id="theme-toggle" aria-label="Cambiar modo claro/oscuro">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="video-section page-content">
+        <p class="section-tag">Plan de Capacitación</p>
+        <h2>Todos los conceptos, paso a paso</h2>
+        <p class="section-description">Explora los módulos en el menú de la izquierda y mira el contenido a la derecha. Cambia de módulo cuando quieras.</p>
+
+        <div class="video-layout">
+            <aside class="video-sidebar">
+                <h3>Módulos</h3>
+                <ul class="video-modules" id="video-modules">
+                    <li class="video-module-item active"><button type="button" data-video="C49DiCdG3RA" data-title="¿Qué es el feminismo?">1 · ¿Qué es el feminismo?</button></li>
+                    <li class="video-module-item"><button type="button" data-video="8j7VUDbQ5rk" data-title="Patriarcado y desigualdad">2 · Patriarcado y desigualdad</button></li>
+                    <li class="video-module-item"><button type="button" data-video="rOEUDMq_3d4" data-title="Interseccionalidad en contexto">3 · Interseccionalidad en contexto</button></li>
+                    <li class="video-module-item"><button type="button" data-video="_mZ8KzG3E48" data-title="Techo de cristal y brecha salarial">4 · Techo de cristal y brecha salarial</button></li>
+                </ul>
+            </aside>
+
+            <div>
+                <div class="video-embed">
+                    <iframe id="training-player" src="https://www.youtube-nocookie.com/embed/C49DiCdG3RA?rel=0&modestbranding=1" title="¿Qué es el feminismo?" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <p style="text-align:center; margin-top:10px;">
+                    Si el video no se reproduce,
+                    <a id="video-fallback-link" href="https://www.youtube.com/watch?v=C49DiCdG3RA" target="_blank" rel="noopener">ábrelo en YouTube</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-grid">
+            <div class="footer-logo-col">
+                <div class="footer-logo">Horizonte Feminista</div>
+                <p>Creado Por: Angel Luis &copy; 2025</p>
+            </div>
+            <div class="footer-links-col">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conceptos.html">Conceptos</a></li>
+                    <li><a href="olas.html">Las Olas</a></li>
+                    <li><a href="balance.html">Balance</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact-col">
+                <h3>Contacto</h3>
+                <p>¿Listo para la acción?</p>
+                <a href="contacto.html" class="btn primary-btn">Regístrate Aquí</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="ai-widget-container">
+        <button id="floating-ai-button" aria-label="Abrir chat de IA">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div id="ai-chat-window" class="hidden">
+            <div class="chat-header">
+                <h3>Vera <span class="chat-badge">IA Feminista</span></h3>
+                <button id="close-chat-button" aria-label="Cerrar chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chat-messages">
+                <div class="message system-message">
+                    Hola! Soy tu asistente de IA. Pregúntame sobre cualquier concepto o etapa del feminismo que desees explorar.
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta..." required>
+                <button id="send-button" aria-label="Enviar mensaje">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Feminista | Regístrate para Protestas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link id="theme-style" rel="stylesheet" href="theme-light.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Horizonte Feminista</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="conceptos.html">Conceptos</a></li>
+            <li><a href="olas.html">Las Olas</a></li>
+            <li><a href="balance.html">Balance</a></li>
+            <li><a href="contacto.html" class="active">Participación</a></li>
+            <li><a href="posters.html">Carteles</a></li>
+        </ul>
+
+        <div class="right-controls">
+            <button id="theme-toggle" aria-label="Cambiar modo claro/oscuro">
+                <i class="fas fa-moon"></i> 
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero de Contacto -->
+    <header class="contact-hero">
+        <div class="contact-hero-inner">
+            <h1>Contacto</h1>
+            <p class="crumb">Inicio / Contacto</p>
+        </div>
+    </header>
+
+    <!-- Sección principal de contacto en dos columnas -->
+    <section class="page-content contact-layout">
+        <div class="contact-main">
+            <p class="section-tag">Ponte en contacto</p>
+            <h2 style="font-size: 2.2rem; margin-bottom: 14px;">Hablemos</h2>
+            <p class="section-description" style="margin-left: 0; margin-right: 0;">
+                Cuéntanos tu consulta o iniciativa. Te responderemos a la brevedad.
+            </p>
+
+            <form class="contact-form" action="#" method="POST">
+                <input type="text" name="name" placeholder="Tu Nombre" required>
+                <input type="email" name="email" placeholder="Tu Email" required>
+                <input type="text" name="subject" placeholder="Asunto" required>
+                <textarea name="message" rows="6" placeholder="Tu Mensaje" required></textarea>
+                <button type="submit" class="btn primary-btn" style="align-self: start;">
+                    Enviar Mensaje
+                </button>
+            </form>
+        </div>
+
+        <aside class="banner-aside" aria-label="Imagen de participación">
+            <img src="https://images.squarespace-cdn.com/content/v1/622a5aa080c953025c167035/b4e72fe8-fb0e-4daf-915a-329a72800b70/AdobeStock_580197027.jpeg" alt="Personas participando en una manifestación">
+        </aside>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-grid">
+            <div class="footer-logo-col">
+                <div class="footer-logo">Horizonte Feminista</div>
+                <p>Creado Por: Angel Luis &copy; 2025</p>
+            </div>
+            <div class="footer-links-col">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conceptos.html">Conceptos</a></li>
+                    <li><a href="olas.html">Las Olas</a></li>
+                    <li><a href="balance.html">Balance</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact-col">
+                <h3>Contacto</h3>
+                <p>¿Listo para la acción?</p>
+                <a href="contacto.html" class="btn primary-btn">Regístrate Aquí</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="ai-widget-container">
+        <button id="floating-ai-button" aria-label="Abrir chat de IA">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div id="ai-chat-window" class="hidden">
+            <div class="chat-header">
+                <h3>Vera <span class="chat-badge">IA Feminista</span></h3>
+                <button id="close-chat-button" aria-label="Cerrar chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chat-messages">
+                <div class="message system-message">
+                    Hola! Soy tu asistente de IA. Pregúntame sobre cualquier concepto o etapa del feminismo que desees explorar.
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta..." required>
+                <button id="send-button" aria-label="Enviar mensaje">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

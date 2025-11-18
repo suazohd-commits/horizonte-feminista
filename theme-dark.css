@@ -1,0 +1,19 @@
+:root {
+  /* Antique Pink Palette - DARK theme variables */
+  --accent-1: #D9666F;
+  --accent-2: #A63F5A; /* primary accent */
+  --accent-3: #D99771;
+  --accent-4: #FFBFB1;
+  --accent-5: #261D1C; /* deep brown/near-black */
+
+  --primary-color: var(--accent-2);
+  --text-color: #F7ECEB; /* light text */
+  --bg-main: #1f1716; /* main dark background */
+  --bg-card: #2a201f; /* card surface dark */
+  --bg-input: rgba(255, 255, 255, 0.06);
+  --border-color: rgba(255, 255, 255, 0.12);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --text-secondary: rgba(247, 236, 235, 0.75);
+  --color-wave-1: var(--accent-3);
+  --color-wave-2: var(--accent-2);
+}
