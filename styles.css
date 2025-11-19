@@ -1611,3 +1611,130 @@ html[data-theme="light"] .contact-hero .crumb { color: var(--text-secondary); op
     .what-is-card.two-col .what-is-right p { max-width: none; }
     .what-is-card.two-col .what-is-left h3 { font-size: 1.5rem; }
 }
+
+.poster-toolbar {
+    margin: 20px auto 24px auto;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+.poster-search-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-card);
+    border-radius: 999px;
+    padding: 8px 14px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.poster-search-wrapper i {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.poster-search-wrapper input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+#poster-search-clear {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.poster-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toolbar-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.poster-filter-select {
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+
+/* Modal de poster */
+.poster-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+}
+
+.poster-modal.visible {
+    display: flex;
+}
+
+.poster-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.poster-modal-content {
+    position: relative;
+    z-index: 1;
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.poster-modal-content img {
+    display: block;
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 10px;
+}
+
+.poster-modal-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.modal-open {
+    overflow: hidden;
+}

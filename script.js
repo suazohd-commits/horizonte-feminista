@@ -207,12 +207,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
+        // ----------------------------------------------------
     // --- 6. Galería de Carteles (tipo Pinterest) ---
     // ----------------------------------------------------
     const gallery = document.getElementById('poster-gallery');
     const fileInput = document.getElementById('poster-file');
     const ctaUpload = document.getElementById('cta-upload');
     const dropZone = document.getElementById('drop-zone');
+
+    const posterSearchInput = document.getElementById('poster-search');
+    const posterSearchClear = document.getElementById('poster-search-clear');
+    const posterFilterSelect = document.getElementById('poster-filter');
+    const addPosterBtn = document.getElementById('add-poster-btn');
+
+    const posterModal = document.getElementById('poster-modal');
+    const posterModalImage = document.getElementById('poster-modal-image');
+    const posterModalClose = document.getElementById('poster-modal-close');
 
     function renderGallery(items) {
         if (!gallery) return;
@@ -223,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = document.createElement('img');
             img.src = src;
             img.alt = `Cartel ${idx+1}`;
+            img.setAttribute('data-index', String(idx));
             const del = document.createElement('button');
             del.className = 'del-btn';
             del.type = 'button';
@@ -262,7 +273,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const items = loadStored();
         const next = dataUrls.concat(items); // más recientes primero
         storeItems(next);
-        renderGallery(next);
+        applyGalleryFilters();
+    }
+
+    function applyGalleryFilters() {
+        const allItems = loadStored();
+        const query = (posterSearchInput?.value || '').toLowerCase().trim();
+        let filtered = allItems;
+
+        if (query) {
+            filtered = allItems.filter((src, idx) => {
+                const label = `cartel ${idx+1}`;
+                return label.toLowerCase().includes(query);
+            });
+        }
+
+        // posterFilterSelect (all/local) por ahora no cambia nada, pero se puede extender.
+        renderGallery(filtered);
     }
 
     if (ctaUpload && fileInput) {
@@ -270,32 +297,85 @@ document.addEventListener('DOMContentLoaded', () => {
         fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
     }
 
+    if (addPosterBtn && fileInput) {
+        addPosterBtn.addEventListener('click', () => fileInput.click());
+    }
+
     if (dropZone) {
-        ['dragenter','dragover'].forEach(ev => dropZone.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); dropZone.classList.add('dragover'); }));
-        ;['dragleave','drop'].forEach(ev => dropZone.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); dropZone.classList.remove('dragover'); }));
+        ['dragenter','dragover'].forEach(ev => dropZone.addEventListener(ev, (e) => { 
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            dropZone.classList.add('dragover'); 
+        }));
+        ;['dragleave','drop'].forEach(ev => dropZone.addEventListener(ev, (e) => { 
+            e.preventDefault(); 
+            e.stopPropagation(); 
+            dropZone.classList.remove('dragover'); 
+        }));
         dropZone.addEventListener('drop', (e) => {
             const dt = e.dataTransfer;
             if (dt && dt.files) handleFiles(dt.files);
         });
     }
 
-    // Inicializar galería desde localStorage
-    if (gallery) renderGallery(loadStored());
+    // Inicializar galería desde localStorage usando filtros
+    if (gallery) applyGalleryFilters();
 
-    // Borrado por delegación
+    // Borrado por delegación + abrir modal
     if (gallery) {
         gallery.addEventListener('click', (e) => {
-            const btn = e.target.closest('.del-btn');
-            if (!btn) return;
-            const idx = parseInt(btn.getAttribute('data-index') || '-1', 10);
-            if (idx < 0) return;
-            const items = loadStored();
-            items.splice(idx, 1);
-            storeItems(items);
-            renderGallery(items);
+            const delBtn = e.target.closest('.del-btn');
+            if (delBtn) {
+                const idx = parseInt(delBtn.getAttribute('data-index') || '-1', 10);
+                if (idx < 0) return;
+                const items = loadStored();
+                items.splice(idx, 1);
+                storeItems(items);
+                applyGalleryFilters();
+                return;
+            }
+
+            const img = e.target.closest('img');
+            if (img && posterModal && posterModalImage) {
+                const src = img.getAttribute('src');
+                if (!src) return;
+                posterModalImage.src = src;
+                posterModal.classList.add('visible');
+                posterModal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('modal-open');
+            }
         });
     }
 
+    function closePosterModal() {
+        if (!posterModal) return;
+        posterModal.classList.remove('visible');
+        posterModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+    }
+
+    posterModalClose?.addEventListener('click', closePosterModal);
+    posterModal?.addEventListener('click', (e) => {
+        if (e.target.classList.contains('poster-modal-backdrop')) {
+            closePosterModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && posterModal?.classList.contains('visible')) {
+            closePosterModal();
+        }
+    });
+
+    posterSearchInput?.addEventListener('input', applyGalleryFilters);
+    posterSearchClear?.addEventListener('click', () => {
+        if (!posterSearchInput) return;
+        posterSearchInput.value = '';
+        applyGalleryFilters();
+        posterSearchInput.focus();
+    });
+
+    posterFilterSelect?.addEventListener('change', applyGalleryFilters);
     // ----------------------------------------------------
     // --- 2. Control de Visibilidad del Chat ---
     // ----------------------------------------------------

@@ -33,9 +33,33 @@
     <p class="section-tag">Carteles de la Comunidad</p>
     <h2>Catálogo colaborativo</h2>
     <p class="section-description">Explora, inspírate y deja tu huella compartiendo tus carteles.</p>
+    <div class="poster-toolbar">
+      <div class="poster-search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="poster-search" placeholder="Buscar carteles" aria-label="Buscar carteles" />
+        <button type="button" id="poster-search-clear" aria-label="Limpiar búsqueda">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="poster-toolbar-right">
+        <button type="button" id="poster-filter-button" class="toolbar-icon-btn" aria-label="Filtros de carteles">
+          <i class="fas fa-sliders-h"></i>
+        </button>
+
+        <select id="poster-filter" class="poster-filter-select" aria-label="Filtrar carteles">
+          <option value="all">Todos los carteles</option>
+          <option value="local">Mis carteles</option>
+        </select>
+
+        <button class="btn primary-btn" id="add-poster-btn" type="button">
+          <i class="fas fa-plus"></i> Añadir carteles
+        </button>
+      </div>
+    </div>
 
     <div class="gallery-cta">
-      <button class="btn primary-btn" id="cta-upload"><i class="fas fa-hand-peace"></i> Deja tu huella</button>
+      <button class="btn secondary-btn" id="cta-upload"><i class="fas fa-hand-peace"></i> Deja tu huella</button>
       <input type="file" id="poster-file" accept="image/*" multiple hidden>
     </div>
 
@@ -45,6 +69,16 @@
 
     <div id="poster-gallery" class="gallery-grid" aria-live="polite"></div>
   </section>
+  
+  <div id="poster-modal" class="poster-modal" aria-hidden="true" role="dialog" aria-label="Vista detallada del cartel">
+    <div class="poster-modal-backdrop"></div>
+    <div class="poster-modal-content">
+      <button type="button" id="poster-modal-close" class="poster-modal-close" aria-label="Cerrar vista del cartel">
+        <i class="fas fa-times"></i>
+      </button>
+      <img id="poster-modal-image" src="" alt="Vista ampliada del cartel" />
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
