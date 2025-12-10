@@ -15,24 +15,27 @@
   <nav class="navbar">
     <div class="logo">Horizonte Feminista</div>
     <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="conceptos.html">Conceptos</a></li>
-      <li><a href="olas.html">Las Olas</a></li>
-      <li><a href="balance.html">Balance</a></li>
-      <li><a href="contacto.html">Participación</a></li>
-      <li><a href="posters.html" class="active">Carteles</a></li>
+      <li><a id="nav-home" href="index.html">Inicio</a></li>
+      <li><a id="nav-concepts" href="conceptos.html">Conceptos</a></li>
+      <li><a id="nav-waves" href="olas.html">Las Olas</a></li>
+      <li><a id="nav-balance" href="balance.html">Balance</a></li>
+      <li><a id="nav-contact" href="contacto.html">Participación</a></li>
+      <li><a id="nav-posters" href="posters.html" class="active">Carteles</a></li>
     </ul>
     <div class="right-controls">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Idioma: Español (clic para Inglés)">ES / EN</button>
       <button id="theme-toggle" aria-label="Cambiar modo claro/oscuro">
         <i class="fas fa-moon"></i>
       </button>
+      <a id="auth-login-link" href="login.html" class="btn secondary-btn small-btn" style="margin-left:8px;">Iniciar sesión</a>
+      <button id="account-btn" class="btn secondary-btn small-btn" style="margin-left:8px; display:none;">Mi cuenta</button>
     </div>
   </nav>
 
   <section class="page-content" id="poster-gallery-section">
-    <p class="section-tag">Carteles de la Comunidad</p>
-    <h2>Catálogo colaborativo</h2>
-    <p class="section-description">Explora, inspírate y deja tu huella compartiendo tus carteles.</p>
+    <p class="section-tag" id="poster-tag">Carteles de la Comunidad</p>
+    <h2 id="poster-title">Catálogo colaborativo</h2>
+    <p class="section-description" id="poster-desc">Explora, inspírate y deja tu huella compartiendo tus carteles.</p>
     <div class="poster-toolbar">
       <div class="poster-search-wrapper">
         <i class="fas fa-search"></i>
@@ -48,22 +51,22 @@
         </button>
 
         <select id="poster-filter" class="poster-filter-select" aria-label="Filtrar carteles">
-          <option value="all">Todos los carteles</option>
-          <option value="local">Mis carteles</option>
+          <option value="all" data-i18n="posters.filter.all">Todos los carteles</option>
+          <option value="local" data-i18n="posters.filter.local">Mis carteles</option>
         </select>
 
-        <button class="btn primary-btn" id="add-poster-btn" type="button">
+        <button class="btn primary-btn" id="add-poster-btn" type="button" data-i18n="posters.addButton">
           <i class="fas fa-plus"></i> Añadir carteles
         </button>
       </div>
     </div>
 
     <div class="gallery-cta">
-      <button class="btn secondary-btn" id="cta-upload"><i class="fas fa-hand-peace"></i> Deja tu huella</button>
+      <button class="btn secondary-btn" id="cta-upload" data-i18n="posters.ctaButton"><i class="fas fa-hand-peace"></i> Deja tu huella</button>
       <input type="file" id="poster-file" accept="image/*" multiple hidden>
     </div>
 
-    <div id="drop-zone" class="drop-zone" aria-label="Arrastra imágenes aquí para subir">
+    <div id="drop-zone" class="drop-zone" aria-label="Arrastra imágenes aquí para subir" data-i18n="posters.dropzoneText">
       Arrastra y suelta tus carteles aquí o usa el botón "Deja tu huella".
     </div>
 
@@ -80,6 +83,37 @@
     </div>
   </div>
 
+  <div id="account-modal" class="account-modal hidden">
+    <div class="account-modal-content">
+      <button id="account-close-btn" class="account-close-icon" aria-label="Cerrar perfil">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="account-header">
+        <div class="account-avatar">
+          <span class="account-avatar-initial">A</span>
+        </div>
+        <div class="account-header-text">
+          <p class="account-greeting">Perfil de usuaria</p>
+          <h2 class="account-title">Mi cuenta</h2>
+        </div>
+      </div>
+      <div class="account-body">
+        <div class="account-field">
+          <span class="field-label">Nombre</span>
+          <span class="field-value" id="account-name"></span>
+        </div>
+        <div class="account-field">
+          <span class="field-label">Correo</span>
+          <span class="field-value" id="account-email"></span>
+        </div>
+      </div>
+      <div class="account-footer">
+        <button id="account-logout-btn" class="btn secondary-btn small-btn">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -18,17 +18,20 @@
     <nav class="navbar">
         <div class="logo">Horizonte Feminista</div>
         <ul class="nav-links">
-            <li><a href="index.html" class="active" aria-current="page">Inicio</a></li>
-            <li><a href="conceptos.html">Conceptos</a></li>
-            <li><a href="olas.html">Las Olas</a></li>
-            <li><a href="balance.html">Balance</a></li>
-            <li><a href="contacto.html">Participación</a></li>
-            <li><a href="posters.html">Carteles</a></li>
+            <li><a id="nav-home" href="index.html" class="active" aria-current="page">Inicio</a></li>
+            <li><a id="nav-concepts" href="conceptos.html">Conceptos</a></li>
+            <li><a id="nav-waves" href="olas.html">Las Olas</a></li>
+            <li><a id="nav-balance" href="balance.html">Balance</a></li>
+            <li><a id="nav-contact" href="contacto.html">Participación</a></li>
+            <li><a id="nav-posters" href="posters.html">Carteles</a></li>
         </ul>
         <div class="right-controls">
+            <button id="lang-toggle" class="lang-toggle" aria-label="Idioma: Español (clic para Inglés)">ES / EN</button>
             <button id="theme-toggle" aria-label="Cambiar modo claro/oscuro">
                 <i class="fas fa-sun"></i> 
             </button>
+            <a id="auth-login-link" href="login.html" class="btn secondary-btn small-btn" style="margin-left:8px;">Iniciar sesión</a>
+            <button id="account-btn" class="btn secondary-btn small-btn" style="margin-left:8px; display:none;">Mi cuenta</button>
         </div>
     </nav>
 
@@ -36,14 +39,14 @@
         <div class="hero-banner">
             <div class="hero-inner">
                 <div class="hero-copy">
-                    <p class="section-tag">Fundamentos</p>
-                    <h1 class="hero-title">Entiende, reflexiona y actúa</h1>
-                    <p class="hero-lead">El feminismo no es un movimiento monolítico, sino un conjunto de teorías y acciones que buscan la igualdad de género. Explora los pilares de este movimiento.</p>
+                    <p class="section-tag" data-i18n="home.hero.tag">Fundamentos</p>
+                    <h1 class="hero-title" data-i18n="home.hero.title">Entiende, reflexiona y actúa</h1>
+                    <p class="hero-lead" data-i18n="home.hero.lead">El feminismo no es un movimiento monolítico, sino un conjunto de teorías y acciones que buscan la igualdad de género. Explora los pilares de este movimiento.</p>
                     <div class="btn-group">
-                        <a href="conceptos.html" class="btn primary-btn">Explorar Conceptos</a>
-                        <a href="capacitacion.html" id="hero-cta" class="btn secondary-btn">Iniciar Capacitación</a>
+                        <a href="conceptos.html" class="btn primary-btn" data-i18n="home.hero.ctaConcepts">Explorar Conceptos</a>
+                        <a href="capacitacion.html" id="hero-cta" class="btn secondary-btn" data-i18n="home.hero.ctaTraining">Iniciar Capacitación</a>
                     </div>
-                    <p class="hero-footnote">El feminismo cuestiona y transforma estructuras de poder para garantizar igualdad real de derechos y oportunidades.</p>
+                    <p class="hero-footnote" data-i18n="home.hero.footnote">El feminismo cuestiona y transforma estructuras de poder para garantizar igualdad real de derechos y oportunidades.</p>
                 </div>
                 <div class="hero-media">
                     <div class="hero-frame">
@@ -55,119 +58,120 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-bottom-note">Igualdad, dignidad y libertad: el feminismo impulsa cambios reales en la vida de las personas.</div>
+            <div class="hero-bottom-note" data-i18n="home.hero.bottomNote">Igualdad, dignidad y libertad: el feminismo impulsa cambios reales en la vida de las personas.</div>
             <div class="hero-image-overlay"></div>
         </div>
     </header>
     
     <section class="values-section" id="resumen-conceptos">
-        <p class="section-tag">Fundamentos</p>
-        <h2>Conceptos que lo cambiaron todo (Extracto)</h2>
-        <p class="section-description">Conoce los términos esenciales para comprender las teorías feministas. Para profundizar, haz clic abajo.</p>
+        <p class="section-tag" data-i18n="home.concepts.tag">Fundamentos</p>
+        <h2 data-i18n="home.concepts.title">Conceptos que lo cambiaron todo (Extracto)</h2>
+        <p class="section-description" data-i18n="home.concepts.lead">Conoce los términos esenciales para comprender las teorías feministas. Para profundizar, haz clic abajo.</p>
 
         <div class="what-is-banner">
-            <h3>¿Qué es el feminismo?</h3>
-            <p class="what-desc">El feminismo es un movimiento social y político que lucha por la igualdad de derechos y oportunidades entre los géneros, cuestionando estructuras de poder y proponiendo cambios culturales y legales para erradicar la discriminación.</p>
-            <a href="conceptos.html" class="small-btn primary-btn">Leer más</a>
+            <h3 data-i18n="home.concepts.bannerTitle">¿Qué es el feminismo?</h3>
+            <p class="what-desc" data-i18n="home.concepts.bannerDesc">El feminismo es un movimiento social y político que lucha por la igualdad de derechos y oportunidades entre los géneros, cuestionando estructuras de poder y proponiendo cambios culturales y legales para erradicar la discriminación.</p>
+            <a href="conceptos.html" class="small-btn primary-btn" data-i18n="home.concepts.bannerCta">Leer más</a>
         </div>
 
         <div class="values-grid index-grid">
             <div class="value-item text-box">
                 <div class="value-icon"><i class="fas fa-user"></i></div>
-                <h3>Patriarcado</h3>
-                <p>Sistema de dominio social en el que los hombres ostentan la mayor parte del poder.</p>
+                <h3 data-i18n="home.concepts.cardPatriarcadoTitle">Patriarcado</h3>
+                <p data-i18n="home.concepts.cardPatriarcadoBody">Sistema de dominio social en el que los hombres ostentan la mayor parte del poder.</p>
             </div>
             <div class="value-item text-box">
                 <div class="value-icon"><i class="fas fa-building"></i></div>
-                <h3>Techo de Cristal</h3>
-                <p>Barrera invisible que impide a las mujeres ascender a puestos de alta dirección.</p>
+                <h3 data-i18n="home.concepts.cardTechoTitle">Techo de Cristal</h3>
+                <p data-i18n="home.concepts.cardTechoBody">Barrera invisible que impide a las mujeres ascender a puestos de alta dirección.</p>
             </div>
             <div class="value-item text-box">
                 <div class="value-icon"><i class="fas fa-layer-group"></i></div>
-                <h3>Interseccionalidad</h3>
-                <p>Análisis de cómo diversas categorías de identidad interactúan creando opresión.</p>
+                <h3 data-i18n="home.concepts.cardInterTitle">Interseccionalidad</h3>
+                <p data-i18n="home.concepts.cardInterBody">Análisis de cómo diversas categorías de identidad interactúan creando opresión.</p>
             </div>
         </div>
-        <a href="conceptos.html" class="btn primary-btn" style="margin-top: 50px;">Ver Conceptos a Detalle</a>
+        <a href="conceptos.html" class="btn primary-btn" style="margin-top: 50px;" data-i18n="home.concepts.ctaDetail">Ver Conceptos a Detalle</a>
     </section>
 
     <!-- Video educativo bajo conceptos -->
     <section class="video-section">
-        <p class="section-tag">Video Recomendado</p>
-        <h2>¿Qué es el feminismo? (Explicación breve)</h2>
-        <p class="section-description">Mira este video introductorio para contextualizar los conceptos clave antes de profundizar.</p>
+        <p class="section-tag" data-i18n="home.video.tag">Video Recomendado</p>
+        <h2 data-i18n="home.video.title">¿Qué es el feminismo? (Explicación breve)</h2>
+        <p class="section-description" data-i18n="home.video.lead">Mira este video introductorio para contextualizar los conceptos clave antes de profundizar.</p>
+
         <div class="video-embed">
             <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/C49DiCdG3RA?rel=0&modestbranding=1" title="¿Qué es el feminismo?" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <p style="text-align:center; margin-top:10px;">
-            Si el video no se reproduce, 
-            <a href="https://www.youtube.com/watch?v=C49DiCdG3RA" target="_blank" rel="noopener">ábrelo en YouTube</a>.
+            <span data-i18n="home.video.fallbackPrefix">Si el video no se reproduce,</span>
+            <a href="https://www.youtube.com/watch?v=C49DiCdG3RA" target="_blank" rel="noopener" data-i18n="home.video.fallbackLink">ábrelo en YouTube</a>.
         </p>
     </section>
 
     <section class="featured-section page-content" id="resumen-olas" style="padding-top: 100px;">
-        <p class="section-tag">Análisis Profundo</p>
-        <h2>Etapas Críticas: Las Cuatro Olas (Resumen)</h2>
-        <p class="section-description">Un vistazo a las fases clave que han marcado la lucha feminista. Para un análisis completo, haz clic en el botón.</p>
-        
+        <p class="section-tag" data-i18n="home.waves.tag">Análisis Profundo</p>
+        <h2 data-i18n="home.waves.title">Etapas Críticas: Las Cuatro Olas (Resumen)</h2>
+        <p class="section-description" data-i18n="home.waves.lead">Un vistazo a las fases clave que han marcado la lucha feminista. Para un análisis completo, haz clic en el botón.</p>
+
         <div class="services-grid">
             <div class="service-item">
                 <img loading="lazy" src="https://livolet.com/wp-content/uploads/2024/05/movimiento-feminista-primera-ola.jpg" alt="Primera Ola">
                 <div class="service-info">
-                    <h3>1ª Ola</h3>
-                    <p>Foco en el sufragio y los derechos de propiedad (Siglos XVIII y XIX).</p>
+                    <h3 data-i18n="home.waves.card1Title">1ª Ola</h3>
+                    <p data-i18n="home.waves.card1Body">Foco en el sufragio y los derechos de propiedad (Siglos XVIII y XIX).</p>
                 </div>
             </div>
             <div class="service-item">
                 <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOwKEmQuj9DGBVu0cfJs0F59oRyNPdWawV3g&s" alt="Segunda Ola">
                 <div class="service-info">
-                    <h3>2ª Ola</h3>
-                    <p>Foco en la sexualidad, derechos reproductivos y roles de género (Décadas de 1960 y 70).</p>
+                    <h3 data-i18n="home.waves.card2Title">2ª Ola</h3>
+                    <p data-i18n="home.waves.card2Body">Foco en la sexualidad, derechos reproductivos y roles de género (Décadas de 1960 y 70).</p>
                 </div>
             </div>
             <div class="service-item">
                 <img loading="lazy" src="https://rincondelectura.net/wp-content/uploads/tercera-ola.jpg" alt="Tercera Ola">
                 <div class="service-info">
-                    <h3>3ª Ola</h3>
-                    <p>Cuestionamiento del 'universalismo' y enfoque en el género y la identidad (Década de 1990).</p>
+                    <h3 data-i18n="home.waves.card3Title">3ª Ola</h3>
+                    <p data-i18n="home.waves.card3Body">Cuestionamiento del 'universalismo' y enfoque en el género y la identidad (Década de 1990).</p>
                 </div>
             </div>
             <div class="service-item">
                 <img loading="lazy" src="https://www.comecso.com/wp-content/uploads/2024/10/pexels-anya-juarez-tenorio-227888521-16110854-1024x683.jpg" alt="Cuarta Ola">
                 <div class="service-info">
-                    <h3>4ª Ola</h3>
-                    <p>Lucha contra la violencia machista y activismo en línea (Desde 2010).</p>
+                    <h3 data-i18n="home.waves.card4Title">4ª Ola</h3>
+                    <p data-i18n="home.waves.card4Body">Lucha contra la violencia machista y activismo en línea (Desde 2010).</p>
                 </div>
             </div>
         </div>
-        <a href="olas.html" class="btn secondary-btn">Ver Todas las Olas (Detalle)</a>
+        <a href="olas.html" class="btn secondary-btn" data-i18n="home.waves.ctaDetail">Ver Todas las Olas (Detalle)</a>
     </section>
 
     <section class="journey-section summary-section" id="resumen-balance">
         <div class="journey-content">
-            <p class="section-tag">Evaluación</p>
-            <h2>Balance: Logros y Retos (Vista Rápida)</h2>
-            <p>El movimiento ha transformado la sociedad, pero la lucha por una igualdad efectiva continúa. Revisa los puntos clave.</p>
+            <p class="section-tag" data-i18n="home.balance.tag">Evaluación</p>
+            <h2 data-i18n="home.balance.title">Balance: Logros y Retos (Vista Rápida)</h2>
+            <p data-i18n="home.balance.lead">El movimiento ha transformado la sociedad, pero la lucha por una igualdad efectiva continúa. Revisa los puntos clave.</p>
 
             <div class="balance-columns">
                 <div class="logros-col">
-                    <h3>Avances</h3>
+                    <h3 data-i18n="home.balance.colAvancesTitle">Avances</h3>
                     <ul>
-                        <li>Derecho al voto y participación política.</li>
-                        <li>Legislación contra la discriminación.</li>
-                        <li>Derechos sexuales y reproductivos.</li>
+                        <li data-i18n="home.balance.itemAvance1">Derecho al voto y participación política.</li>
+                        <li data-i18n="home.balance.itemAvance2">Legislación contra la discriminación.</li>
+                        <li data-i18n="home.balance.itemAvance3">Derechos sexuales y reproductivos.</li>
                     </ul>
                 </div>
                 <div class="desafios-col">
-                    <h3>Desafíos</h3>
+                    <h3 data-i18n="home.balance.colDesafiosTitle">Desafíos</h3>
                     <ul>
-                        <li>Persistencia de la brecha salarial.</li>
-                        <li>Alta incidencia de la violencia machista.</li>
-                        <li>Baja representación en altas esferas.</li>
+                        <li data-i18n="home.balance.itemDesafio1">Persistencia de la brecha salarial.</li>
+                        <li data-i18n="home.balance.itemDesafio2">Alta incidencia de la violencia machista.</li>
+                        <li data-i18n="home.balance.itemDesafio3">Baja representación en altas esferas.</li>
                     </ul>
                 </div>
             </div>
-             <a href="balance.html" class="btn secondary-btn" style="margin-top: 30px;">Ver Balance Completo</a>
+             <a href="balance.html" class="btn secondary-btn" style="margin-top: 30px;" data-i18n="home.balance.ctaDetail">Ver Balance Completo</a>
         </div>
         <div class="journey-visuals">
             <img loading="lazy" src="https://inba.gob.mx/multimedia/prensa/galerias/22031/22031-IMG_BG_POST-conversatorio_sobre_feminismo_en_ex_teresa_(1).jpeg" alt="Grupo de mujeres manifestándose">
@@ -177,9 +181,17 @@
     <!-- Teaser penúltimo: invita al Plan de Capacitación -->
     <section class="teaser-band" style="background-image: url('https://imagenes.elpais.com/resizer/v2/UQFNDMT6TRAGFO3A6LTX64Q4DI.jpg?auth=80dfb1f54b0ed192e04ce7002cab27e86352b4aa9b8c5cf1a88138c51e0b4560&width=1960&height=1103&smart=true');">
         <div class="teaser-content">
-            <h2>Plan de Capacitación</h2>
-            <p>Domina los conceptos clave del feminismo con módulos cortos y claros.</p>
-            <a class="btn primary-btn" id="teaser-cta" href="capacitacion.html">Ir al Plan</a>
+            <h2 data-i18n="home.teaser.title">Plan de Capacitación</h2>
+            <p data-i18n="home.teaser.lead">Domina los conceptos clave del feminismo con módulos cortos y claros.</p>
+            <a class="btn primary-btn" id="teaser-cta" href="capacitacion.html" data-i18n="home.teaser.cta">Ir al Plan</a>
+        </div>
+    </section>
+
+    <section class="teaser-band" style="background-image: url('https://static.nuso.org/cache/f0/55/f05517eaa9a68163f35fcf45de57cee9.jpg');">
+        <div class="teaser-content">
+            <h2 data-i18n="home.quiz.title">Quiz</h2>
+            <p data-i18n="home.quiz.lead">Pon a prueba lo que has aprendido sobre conceptos, olas y retos del feminismo.</p>
+            <a class="btn primary-btn" href="quiz.html" data-i18n="home.quiz.cta">Empezar Quiz</a>
         </div>
     </section>
 
@@ -190,21 +202,51 @@
                 <p>Creado Por: Angel Luis &copy; 2025</p>
             </div>
             <div class="footer-links-col">
-                <h3>Explorar</h3>
+                <h3 data-i18n="home.footer.exploreTitle">Explorar</h3>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="conceptos.html">Conceptos</a></li>
-                    <li><a href="olas.html">Las Olas</a></li>
-                    <li><a href="balance.html">Balance</a></li>
+                    <li><a href="index.html" data-i18n="home.footer.exploreHome">Inicio</a></li>
+                    <li><a href="conceptos.html" data-i18n="home.footer.exploreConcepts">Conceptos</a></li>
+                    <li><a href="olas.html" data-i18n="home.footer.exploreWaves">Las Olas</a></li>
+                    <li><a href="balance.html" data-i18n="home.footer.exploreBalance">Balance</a></li>
                 </ul>
             </div>
             <div class="footer-contact-col">
-                <h3>Contacto</h3>
-                <p>¿Listo para la acción?</p>
-                <a href="contacto.html" class="btn primary-btn">Regístrate Aquí</a>
+                <h3 data-i18n="home.footer.contactTitle">Contacto</h3>
+                <p data-i18n="home.footer.contactLead">¿Listo para la acción?</p>
+                <a href="contacto.html" class="btn primary-btn" data-i18n="home.footer.contactCta">Regístrate Aquí</a>
             </div>
         </div>
     </footer>
+
+    <div id="account-modal" class="account-modal hidden">
+        <div class="account-modal-content">
+            <button id="account-close-btn" class="account-close-icon" aria-label="Cerrar perfil">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="account-header">
+                <div class="account-avatar">
+                    <span class="account-avatar-initial">A</span>
+                </div>
+                <div class="account-header-text">
+                    <p class="account-greeting">Perfil de usuaria</p>
+                    <h2 class="account-title">Mi cuenta</h2>
+                </div>
+            </div>
+            <div class="account-body">
+                <div class="account-field">
+                    <span class="field-label">Nombre</span>
+                    <span class="field-value" id="account-name"></span>
+                </div>
+                <div class="account-field">
+                    <span class="field-label">Correo</span>
+                    <span class="field-value" id="account-email"></span>
+                </div>
+            </div>
+            <div class="account-footer">
+                <button id="account-logout-btn" class="btn secondary-btn small-btn">Cerrar sesión</button>
+            </div>
+        </div>
+    </div>
 
     <div id="ai-widget-container">
         <button id="floating-ai-button" aria-label="Abrir chat de IA">
@@ -212,7 +254,7 @@
         </button>
         <div id="ai-chat-window" class="hidden">
             <div class="chat-header">
-                <h3>Vera <span class="chat-badge">IA Feminista</span></h3>
+                <h3>VeraIA</h3>
                 <button id="close-chat-button" aria-label="Cerrar chat">
                     <i class="fas fa-times"></i>
                 </button>
@@ -231,6 +273,8 @@
         </div>
     </div>
 
+    <!-- Supabase para que el perfil y otras funciones puedan consultar la base de datos -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>
 </html>

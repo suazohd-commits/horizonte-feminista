@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizonte Feminista | Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <link id="theme-style" rel="stylesheet" href="theme-light.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Horizonte Feminista</div>
+    <ul class="nav-links">
+      <li><a id="nav-home" href="index.html">Inicio</a></li>
+      <li><a id="nav-concepts" href="conceptos.html">Conceptos</a></li>
+      <li><a id="nav-waves" href="olas.html">Las Olas</a></li>
+      <li><a id="nav-balance" href="balance.html">Balance</a></li>
+      <li><a id="nav-contact" href="contacto.html">Participación</a></li>
+      <li><a id="nav-posters" href="posters.html">Carteles</a></li>
+    </ul>
+    <div class="right-controls">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Idioma: Español (clic para Inglés)">ES / EN</button>
+      <button id="theme-toggle" aria-label="Cambiar modo claro/oscuro">
+        <i class="fas fa-moon"></i>
+      </button>
+      <a id="auth-login-link" href="login.html" class="btn secondary-btn small-btn" style="margin-left:8px;">Iniciar sesión</a>
+      <button id="account-btn" class="btn secondary-btn small-btn" style="margin-left:8px; display:none;">Mi cuenta</button>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <section class="values-section">
+      <p class="section-tag" data-i18n="quiz.page.tag">Autoevaluación</p>
+      <h2 data-i18n="quiz.page.title">Quiz: 5 preguntas</h2>
+      <p class="section-description" data-i18n="quiz.page.lead">
+        Responde estas preguntas breves para reflexionar sobre los conceptos, las olas y los retos del feminismo. No hay nota final: el objetivo es ayudarte a consolidar lo que has visto.
+      </p>
+
+      <div class="concept-list quiz-list">
+        <article class="concept-card">
+          <div class="concept-content">
+            <h3 data-i18n="quiz.q1.title">1. ¿Qué describe mejor el patriarcado?</h3>
+            <ul>
+              <li><label><input type="radio" name="q1" value="a"> <span data-i18n="quiz.q1.a">Una forma de gobierno democrático.</span></label></li>
+              <li><label><input type="radio" name="q1" value="b"> <span data-i18n="quiz.q1.b">Un sistema de organización social donde los hombres concentran la mayor parte del poder.</span></label></li>
+              <li><label><input type="radio" name="q1" value="c"> <span data-i18n="quiz.q1.c">Un estilo de liderazgo neutral al género.</span></label></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-card">
+          <div class="concept-content">
+            <h3 data-i18n="quiz.q2.title">2. ¿Qué metáfora utiliza el concepto de "techo de cristal"?</h3>
+            <ul>
+              <li><label><input type="radio" name="q2" value="a"> <span data-i18n="quiz.q2.a">Una frontera física que impide a las mujeres cambiar de país.</span></label></li>
+              <li><label><input type="radio" name="q2" value="b"> <span data-i18n="quiz.q2.b">Un límite invisible que frena el acceso de las mujeres a puestos de alta responsabilidad.</span></label></li>
+              <li><label><input type="radio" name="q2" value="c"> <span data-i18n="quiz.q2.c">Una norma que regula los salarios.</span></label></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-card">
+          <div class="concept-content">
+            <h3 data-i18n="quiz.q3.title">3. ¿Cuál es una idea central de la tercera ola del feminismo?</h3>
+            <ul>
+              <li><label><input type="radio" name="q3" value="a"> <span data-i18n="quiz.q3.a">Centrarse exclusivamente en el derecho al voto.</span></label></li>
+              <li><label><input type="radio" name="q3" value="b"> <span data-i18n="quiz.q3.b">Plantear la interseccionalidad y la diversidad de experiencias.</span></label></li>
+              <li><label><input type="radio" name="q3" value="c"> <span data-i18n="quiz.q3.c">Eliminar todas las diferencias culturales.</span></label></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-card">
+          <div class="concept-content">
+            <h3 data-i18n="quiz.q4.title">4. ¿Qué aspecto visibiliza especialmente la cuarta ola del feminismo?</h3>
+            <ul>
+              <li><label><input type="radio" name="q4" value="a"> <span data-i18n="quiz.q4.a">La educación universitaria exclusiva para mujeres.</span></label></li>
+              <li><label><input type="radio" name="q4" value="b"> <span data-i18n="quiz.q4.b">La violencia de género y el activismo digital (#MeToo, redes sociales).</span></label></li>
+              <li><label><input type="radio" name="q4" value="c"> <span data-i18n="quiz.q4.c">La prohibición del trabajo remunerado.</span></label></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-card">
+          <div class="concept-content">
+            <h3 data-i18n="quiz.q5.title">5. ¿Por qué es importante la idea de interseccionalidad en el feminismo?</h3>
+            <ul>
+              <li><label><input type="radio" name="q5" value="a"> <span data-i18n="quiz.q5.a">Porque sostiene que todas las mujeres viven exactamente las mismas experiencias.</span></label></li>
+              <li><label><input type="radio" name="q5" value="b"> <span data-i18n="quiz.q5.b">Porque ayuda a entender cómo género, raza, clase y otras identidades se cruzan en las experiencias de opresión.</span></label></li>
+              <li><label><input type="radio" name="q5" value="c"> <span data-i18n="quiz.q5.c">Porque se centra solo en la situación económica.</span></label></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn primary-btn" id="quiz-submit" data-i18n="quiz.submit">Ver resultados</button>
+        <p id="quiz-result" class="quiz-result" data-i18n="quiz.page.footer">
+          Puedes volver a las secciones de conceptos, olas o balance para revisar cualquier tema y repetir el quiz cuando quieras.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div id="account-modal" class="account-modal hidden">
+    <div class="account-modal-content">
+      <button id="account-close-btn" class="account-close-icon" aria-label="Cerrar perfil">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="account-header">
+        <div class="account-avatar">
+          <span class="account-avatar-initial">A</span>
+        </div>
+        <div class="account-header-text">
+          <p class="account-greeting">Perfil de usuaria</p>
+          <h2 class="account-title">Mi cuenta</h2>
+        </div>
+      </div>
+      <div class="account-body">
+        <div class="account-field">
+          <span class="field-label">Nombre</span>
+          <span class="field-value" id="account-name"></span>
+        </div>
+        <div class="account-field">
+          <span class="field-label">Correo</span>
+          <span class="field-value" id="account-email"></span>
+        </div>
+      </div>
+      <div class="account-footer">
+        <button id="account-logout-btn" class="btn secondary-btn small-btn">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
