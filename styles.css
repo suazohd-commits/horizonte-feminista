@@ -49,6 +49,15 @@ body {
     transition: background-color 0.4s, color 0.4s;
 }
 
+/* Fondo específico para páginas de autenticación (login / registro) */
+html[data-theme="light"] body.auth-body {
+    background-color: #fdfdfd;
+}
+
+html[data-theme="dark"] body.auth-body {
+    background-color: #050506;
+}
+
 a {
     color: var(--text-color); 
     text-decoration: none;
@@ -1024,9 +1033,18 @@ html[data-theme="light"] .hero-lead { color: var(--text-secondary); }
     box-shadow: 0 8px 18px var(--shadow-color);
     overflow: hidden;
     padding: 14px;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.25s ease;
 }
 .concept-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px var(--shadow-color); }
+
+/* Aumentar contraste de fondo para destacar texto, especialmente en quiz y plan de capacitación */
+html[data-theme="light"] .concept-card {
+    background-color: #e6c3cf; /* rosado más profundo para mayor contraste */
+}
+
+html[data-theme="dark"] .concept-card {
+    background-color: #12090c; /* fondo vino muy oscuro para resaltar texto claro */
+}
 
 /* En el quiz, las tarjetas son de texto completo (sin columna de imagen) */
 .quiz-list .concept-card {
@@ -1035,8 +1053,8 @@ html[data-theme="light"] .hero-lead { color: var(--text-secondary); }
     border-radius: 18px;
     box-shadow: 0 10px 26px var(--shadow-color);
     border: 1px solid rgba(0,0,0,0.02);
-    background: #fff;
     margin-bottom: 12px;
+    background: inherit;
 }
 
 .concept-media {
@@ -2015,9 +2033,14 @@ body.modal-open {
     min-height: 100vh;
     display: grid;
     grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-    background: radial-gradient(circle at top left, rgba(166, 63, 90, 0.18), transparent 55%),
-                radial-gradient(circle at bottom right, rgba(93, 37, 80, 0.2), transparent 55%),
-                var(--bg-main);
+}
+
+html[data-theme="light"] .auth-page {
+    background: #fdfdfd;
+}
+
+html[data-theme="dark"] .auth-page {
+    background: #0f0f10;
 }
 
 .auth-illustration {
@@ -2027,13 +2050,12 @@ body.modal-open {
     padding: 60px;
 }
 
-.auth-illustration::before {
-    content: "";
+.auth-illustration img {
     width: 100%;
     max-width: 520px;
     aspect-ratio: 4 / 3;
     border-radius: 32px;
-    background: linear-gradient(135deg, rgba(166,63,90,0.95), rgba(255,255,255,0.06));
+    object-fit: cover;
     box-shadow: 0 30px 80px rgba(0,0,0,0.35);
 }
 

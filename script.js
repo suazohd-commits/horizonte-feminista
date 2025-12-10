@@ -566,11 +566,35 @@ document.addEventListener('DOMContentLoaded', () => {
             'contact.form.submit': 'Enviar Mensaje',
 
             // posters.html
+            'posters.tag': 'Carteles de la Comunidad',
+            'posters.title': 'Catálogo colaborativo',
+            'posters.lead': 'Explora, inspírate y deja tu huella compartiendo tus carteles.',
             'posters.filter.all': 'Todos los carteles',
             'posters.filter.local': 'Mis carteles',
             'posters.addButton': 'Añadir carteles',
             'posters.ctaButton': 'Deja tu huella',
             'posters.dropzoneText': 'Arrastra y suelta tus carteles aquí o usa el botón "Deja tu huella".',
+
+            // auth: login / register
+            'auth.login.tag': 'Bienvenida',
+            'auth.login.title': 'Inicia sesión',
+            'auth.login.lead': 'Accede para guardar tus resultados del quiz y tu actividad.',
+            'auth.login.emailLabel': 'Correo electrónico',
+            'auth.login.passwordLabel': 'Contraseña',
+            'auth.login.submit': 'Entrar',
+            'auth.login.switchText': '¿No tienes cuenta?',
+            'auth.login.switchLink': 'Regístrate',
+
+            'auth.register.tag': 'Crea tu cuenta',
+            'auth.register.title': 'Registro',
+            'auth.register.lead': 'Regístrate para guardar tus avances y participar más en la comunidad.',
+            'auth.register.nameLabel': 'Nombre',
+            'auth.register.emailLabel': 'Correo electrónico',
+            'auth.register.passwordLabel': 'Contraseña',
+            'auth.register.password2Label': 'Repite la contraseña',
+            'auth.register.submit': 'Crear cuenta',
+            'auth.register.switchText': '¿Ya tienes cuenta?',
+            'auth.register.switchLink': 'Inicia sesión',
 
             // quiz.html
             'quiz.title': 'Quiz feminista',
@@ -593,59 +617,52 @@ document.addEventListener('DOMContentLoaded', () => {
             'home.hero.ctaTraining': 'Start training',
             'home.hero.footnote': 'Feminism questions and transforms power structures to guarantee real equality of rights and opportunities.',
             'home.hero.bottomNote': 'Equality, dignity and freedom: feminism drives real change in people\'s lives.',
-        'home.hero.ctaTraining': 'Iniciar Capacitación',
-        'home.hero.footnote': 'El feminismo cuestiona y transforma estructuras de poder para garantizar igualdad real de derechos y oportunidades.',
-        'home.hero.bottomNote': 'Igualdad, dignidad y libertad: el feminismo impulsa cambios reales en la vida de las personas.',
 
-        // index: resumen conceptos
-        'home.concepts.tag': 'Fundamentos',
-        'home.concepts.title': 'Conceptos que lo cambiaron todo (Extracto)',
-        'home.concepts.lead': 'Conoce los términos esenciales para comprender las teorías feministas. Para profundizar, haz clic abajo.',
-        'home.concepts.bannerTitle': '¿Qué es el feminismo?',
-        'home.concepts.bannerDesc': 'El feminismo es un movimiento social y político que lucha por la igualdad de derechos y oportunidades entre los géneros, cuestionando estructuras de poder y proponiendo cambios culturales y legales para erradicar la discriminación.',
-        'home.concepts.bannerCta': 'Leer más',
-        'home.concepts.cardPatriarcadoTitle': 'Patriarcado',
-        'home.concepts.cardPatriarcadoBody': 'Sistema de dominio social en el que los hombres ostentan la mayor parte del poder.',
-        'home.concepts.cardTechoTitle': 'Techo de Cristal',
-        'home.concepts.cardTechoBody': 'Barrera invisible que impide a las mujeres ascender a puestos de alta dirección.',
-        'home.concepts.cardInterTitle': 'Interseccionalidad',
-        'home.concepts.cardInterBody': 'Análisis de cómo diversas categorías de identidad interactúan creando opresión.',
-        'home.concepts.ctaDetail': 'Ver Conceptos a Detalle',
+            // index: resumen conceptos
+            'home.concepts.tag': 'Foundations',
+            'home.concepts.title': 'Concepts that changed everything (Excerpt)',
+            'home.concepts.lead': 'Discover the essential terms to understand feminist theories. To go deeper, click below.',
+            'home.concepts.bannerTitle': 'What is feminism?',
+            'home.concepts.bannerDesc': 'Feminism is a social and political movement that fights for equal rights and opportunities between genders, questioning power structures and proposing cultural and legal changes to eradicate discrimination.',
+            'home.concepts.bannerCta': 'Read more',
+            'home.concepts.cardPatriarcadoTitle': 'Patriarchy',
+            'home.concepts.cardPatriarcadoBody': 'A system of social domination in which men hold most of the power.',
+            'home.concepts.cardTechoTitle': 'Glass ceiling',
+            'home.concepts.cardTechoBody': 'Invisible barrier that prevents women from reaching top management positions.',
+            'home.concepts.cardInterTitle': 'Intersectionality',
+            'home.concepts.cardInterBody': 'Analysis of how different identity categories interact creating oppression.',
+            'home.concepts.ctaDetail': 'See concepts in detail',
 
-        // index: video
-        'home.video.tag': 'Video Recomendado',
-        'home.video.title': '¿Qué es el feminismo? (Explicación breve)',
-        'home.video.lead': 'Mira este video introductorio para contextualizar los conceptos clave antes de profundizar.',
-        'home.video.fallbackPrefix': 'Si el video no se reproduce,',
-        'home.video.fallbackLink': 'ábrelo en YouTube',
+            // posters.html
+            'posters.tag': 'Community posters',
+            'posters.title': 'Collaborative catalogue',
+            'posters.lead': 'Explore, get inspired and leave your mark by sharing your posters.',
+            'posters.filter.all': 'All posters',
+            'posters.filter.local': 'My posters',
+            'posters.addButton': 'Add posters',
+            'posters.ctaButton': 'Leave your mark',
+            'posters.dropzoneText': 'Drag and drop your posters here or use the "Leave your mark" button.',
 
-        // index: olas resumen
-        'home.waves.tag': 'Análisis Profundo',
-        'home.waves.title': 'Etapas Críticas: Las Cuatro Olas (Resumen)',
-        'home.waves.lead': 'Un vistazo a las fases clave que han marcado la lucha feminista. Para un análisis completo, haz clic en el botón.',
-        'home.waves.card1Title': '1ª Ola',
-        'home.waves.card1Body': 'Foco en el sufragio y los derechos de propiedad (Siglos XVIII y XIX).',
-        'home.waves.card2Title': '2ª Ola',
-        'home.waves.card2Body': 'Foco en la sexualidad, derechos reproductivos y roles de género (Décadas de 1960 y 70).',
-        'home.waves.card3Title': '3ª Ola',
-        'home.waves.card3Body': "Cuestionamiento del 'universalismo' y enfoque en el género y la identidad (Década de 1990).",
-        'home.waves.card4Title': '4ª Ola',
-        'home.waves.card4Body': 'Lucha contra la violencia machista y activismo en línea (Desde 2010).',
-        'home.waves.ctaDetail': 'Ver Todas las Olas (Detalle)',
+            // auth: login / register
+            'auth.login.tag': 'Welcome',
+            'auth.login.title': 'Log in',
+            'auth.login.lead': 'Log in to save your quiz results and your activity.',
+            'auth.login.emailLabel': 'Email address',
+            'auth.login.passwordLabel': 'Password',
+            'auth.login.submit': 'Sign in',
+            'auth.login.switchText': "Don\'t have an account?",
+            'auth.login.switchLink': 'Sign up',
 
-        // index: balance resumen
-        'home.balance.tag': 'Evaluación',
-        'home.balance.title': 'Balance: Logros y Retos (Vista Rápida)',
-        'home.balance.lead': 'El movimiento ha transformado la sociedad, pero la lucha por una igualdad efectiva continúa. Revisa los puntos clave.',
-        'home.balance.colAvancesTitle': 'Avances',
-        'home.balance.itemAvance1': 'Derecho al voto y participación política.',
-        'home.balance.itemAvance2': 'Legislación contra la discriminación.',
-        'home.balance.itemAvance3': 'Derechos sexuales y reproductivos.',
-        'home.balance.colDesafiosTitle': 'Desafíos',
-        'home.balance.itemDesafio1': 'Persistencia de la brecha salarial.',
-        'home.balance.itemDesafio2': 'Alta incidencia de la violencia machista.',
-        'home.balance.itemDesafio3': 'Baja representación en altas esferas.',
-        'home.balance.ctaDetail': 'Ver Balance Completo',
+            'auth.register.tag': 'Create your account',
+            'auth.register.title': 'Sign up',
+            'auth.register.lead': 'Sign up to save your progress and participate more in the community.',
+            'auth.register.nameLabel': 'Name',
+            'auth.register.emailLabel': 'Email address',
+            'auth.register.passwordLabel': 'Password',
+            'auth.register.password2Label': 'Repeat password',
+            'auth.register.submit': 'Create account',
+            'auth.register.switchText': 'Already have an account?',
+            'auth.register.switchLink': 'Log in',
 
         // index: teaser
         'home.teaser.title': 'Plan de Capacitación',
@@ -1030,6 +1047,113 @@ function applyLanguage(lang) {
         el.textContent = value;
     });
 }
+    // ----------------------------------------------------
+    // --- 4.b Toggle de vistas en conceptos.html (Alineación 1/2) ---
+    // ----------------------------------------------------
+
+    function activateAlign1() {
+        if (!align1View || !align2View) return;
+        align1View.classList.add('view-hidden');
+        align2View.classList.add('view-hidden');
+        align1View.classList.remove('view-hidden');
+        if (align1Btn && align2Btn) {
+            align1Btn.classList.add('primary-btn');
+            align1Btn.classList.remove('secondary-btn');
+            align2Btn.classList.add('secondary-btn');
+            align2Btn.classList.remove('primary-btn');
+            align1Btn.disabled = true;
+            align2Btn.disabled = false;
+            align1Btn.setAttribute('aria-pressed', 'true');
+            align2Btn.setAttribute('aria-pressed', 'false');
+        }
+        try { localStorage.setItem('concepts_view', 'align1'); } catch {}
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function activateAlign2() {
+        if (!align1View || !align2View) return;
+        align1View.classList.add('view-hidden');
+        align2View.classList.add('view-hidden');
+        align2View.classList.remove('view-hidden');
+        if (align1Btn && align2Btn) {
+            align1Btn.classList.add('secondary-btn');
+            align1Btn.classList.remove('primary-btn');
+            align2Btn.classList.add('primary-btn');
+            align2Btn.classList.remove('secondary-btn');
+            align1Btn.disabled = false;
+            align2Btn.disabled = true;
+            align1Btn.setAttribute('aria-pressed', 'false');
+            align2Btn.setAttribute('aria-pressed', 'true');
+        }
+        try { localStorage.setItem('concepts_view', 'align2'); } catch {}
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    if (align1Btn) {
+        align1Btn.addEventListener('click', activateAlign1);
+    }
+    if (align2Btn) {
+        align2Btn.addEventListener('click', activateAlign2);
+    }
+
+    if (align1View && align2View) {
+        let pref = null;
+        try { pref = localStorage.getItem('concepts_view'); } catch {}
+        if (pref === 'align2') {
+            activateAlign2();
+        } else {
+            activateAlign1();
+        }
+    }
+
+    // ----------------------------------------------------
+    // --- 4.c Toggle Definiciones / Línea de tiempo en olas.html ---
+    // ----------------------------------------------------
+    const defSection = document.getElementById('definitions-view');
+    const timelineSection = document.getElementById('timeline');
+    const btnDef = document.getElementById('view-def');
+    const btnTimeline = document.getElementById('view-timeline');
+
+    function activateDefinitions() {
+        if (!defSection || !timelineSection) return;
+        defSection.classList.remove('view-hidden');
+        timelineSection.classList.add('view-hidden');
+        if (btnDef && btnTimeline) {
+            btnDef.classList.add('primary-btn');
+            btnDef.classList.remove('secondary-btn');
+            btnTimeline.classList.add('secondary-btn');
+            btnTimeline.classList.remove('primary-btn');
+        }
+        document.querySelector('.wave-details-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        try { window._feministMap?.invalidateSize(); } catch {}
+    }
+
+    function activateTimeline() {
+        if (!defSection || !timelineSection) return;
+        defSection.classList.add('view-hidden');
+        timelineSection.classList.remove('view-hidden');
+        if (btnDef && btnTimeline) {
+            btnDef.classList.add('secondary-btn');
+            btnDef.classList.remove('primary-btn');
+            btnTimeline.classList.add('primary-btn');
+            btnTimeline.classList.remove('secondary-btn');
+        }
+        document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        try { window._feministMap?.invalidateSize(); } catch {}
+    }
+
+    if (btnDef) {
+        btnDef.addEventListener('click', activateDefinitions);
+    }
+    if (btnTimeline) {
+        btnTimeline.addEventListener('click', activateTimeline);
+    }
+
+    if (defSection && timelineSection) {
+        // Vista por defecto: Definiciones
+        activateDefinitions();
+    }
+
     // ----------------------------------------------------
     // --- 5. Manejo del menú lateral de videos (Conceptos) ---
     // ----------------------------------------------------

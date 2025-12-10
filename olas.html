@@ -17,19 +17,22 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">Feminismo</div>
+        <div class="logo">Horizonte Feminista</div>
         <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="conceptos.html">Conceptos</a></li>
-            <li><a href="olas.html" class="active">Las Olas</a></li>
-            <li><a href="balance.html">Balance</a></li>
-            <li><a href="contacto.html">Participación</a></li>
-            <li><a href="posters.html">Carteles</a></li>
+            <li><a id="nav-home" href="index.html">Inicio</a></li>
+            <li><a id="nav-concepts" href="conceptos.html">Conceptos</a></li>
+            <li><a id="nav-waves" href="olas.html" class="active">Las Olas</a></li>
+            <li><a id="nav-balance" href="balance.html">Balance</a></li>
+            <li><a id="nav-contact" href="contacto.html">Participación</a></li>
+            <li><a id="nav-posters" href="posters.html">Carteles</a></li>
         </ul>
         <div class="right-controls">
+            <button id="lang-toggle" class="lang-toggle" aria-label="Idioma: Español (clic para Inglés)">ES / EN</button>
             <button id="theme-toggle" aria-label="Cambiar modo claro/oscuro">
-                <i class="fas fa-moon"></i> 
+                <i class="fas fa-moon"></i>
             </button>
+            <a id="auth-login-link" href="login.html" class="btn secondary-btn small-btn" style="margin-left:8px;">Iniciar sesión</a>
+            <button id="account-btn" class="btn secondary-btn small-btn" style="margin-left:8px; display:none;">Mi cuenta</button>
         </div>
     </nav>
 
@@ -206,6 +209,36 @@
         </div>
     </div>
 
+    <div id="account-modal" class="account-modal hidden">
+        <div class="account-modal-content">
+          <button id="account-close-btn" class="account-close-icon" aria-label="Cerrar perfil">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="account-header">
+            <div class="account-avatar">
+              <span class="account-avatar-initial">A</span>
+            </div>
+            <div class="account-header-text">
+              <p class="account-greeting">Perfil de usuaria</p>
+              <h2 class="account-title">Mi cuenta</h2>
+            </div>
+          </div>
+          <div class="account-body">
+            <div class="account-field">
+              <span class="field-label">Nombre</span>
+              <span class="field-value" id="account-name"></span>
+            </div>
+            <div class="account-field">
+              <span class="field-label">Correo</span>
+              <span class="field-value" id="account-email"></span>
+            </div>
+          </div>
+          <div class="account-footer">
+            <button id="account-logout-btn" class="btn secondary-btn small-btn">Cerrar sesión</button>
+          </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         
     <script>
@@ -268,9 +301,9 @@
                 <p>${data.description}</p>
             `);
         });
-
     </script>
     
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>
 </html>
