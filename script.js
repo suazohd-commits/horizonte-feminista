@@ -1236,6 +1236,24 @@ function applyLanguage(lang) {
         localStorage.setItem('poster_gallery_items', JSON.stringify(items));
     }
 
+    async function loadRemotePosters() {
+        if (!supabaseClient) return [];
+        try {
+            const { data, error } = await supabaseClient
+                .from('posters')
+                .select('image_url')
+                .order('created_at', { ascending: false })
+                .limit(100);
+            if (error || !data) return [];
+            return data
+                .map(row => row.image_url)
+                .filter((url) => typeof url === 'string' && url.startsWith('data:'));
+        } catch (e) {
+            console.warn('No se pudieron leer los carteles remotos', e);
+            return [];
+        }
+    }
+
     async function filesToDataUrls(files) {
         const promises = [...files].map(file => new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -1320,8 +1338,16 @@ function applyLanguage(lang) {
         });
     }
 
-    // Inicializar galería desde localStorage usando filtros
-    if (gallery) applyGalleryFilters();
+    // Inicializar galería combinando Supabase + localStorage
+    if (gallery) {
+        (async () => {
+            const localItems = loadStored();
+            const remoteItems = await loadRemotePosters();
+            const merged = [...remoteItems, ...localItems];
+            storeItems(merged);
+            applyGalleryFilters();
+        })();
+    }
 
     // Borrado por delegación + abrir modal
     if (gallery) {

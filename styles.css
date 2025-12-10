@@ -1033,17 +1033,17 @@ html[data-theme="light"] .hero-lead { color: var(--text-secondary); }
     box-shadow: 0 8px 18px var(--shadow-color);
     overflow: hidden;
     padding: 14px;
-    transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.25s ease;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 .concept-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px var(--shadow-color); }
 
 /* Aumentar contraste de fondo para destacar texto, especialmente en quiz y plan de capacitación */
 html[data-theme="light"] .concept-card {
-    background-color: #e6c3cf; /* rosado más profundo para mayor contraste */
+    background-color: var(--bg-card);
 }
 
 html[data-theme="dark"] .concept-card {
-    background-color: #12090c; /* fondo vino muy oscuro para resaltar texto claro */
+    background-color: var(--bg-card);
 }
 
 /* En el quiz, las tarjetas son de texto completo (sin columna de imagen) */
