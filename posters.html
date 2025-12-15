@@ -39,35 +39,19 @@
     <div class="poster-toolbar">
       <div class="poster-search-wrapper">
         <i class="fas fa-search"></i>
-        <input type="text" id="poster-search" placeholder="Buscar carteles" aria-label="Buscar carteles" />
-        <button type="button" id="poster-search-clear" aria-label="Limpiar búsqueda">
-          <i class="fas fa-times"></i>
-        </button>
+        <input type="text" id="poster-search" placeholder="Buscar carteles" aria-label="Buscar carteles" data-i18n="posters.search.placeholder" />
       </div>
 
-      <div class="poster-toolbar-right">
-        <button type="button" id="poster-filter-button" class="toolbar-icon-btn" aria-label="Filtros de carteles">
-          <i class="fas fa-sliders-h"></i>
-        </button>
-
-        <select id="poster-filter" class="poster-filter-select" aria-label="Filtrar carteles">
-          <option value="all" data-i18n="posters.filter.all">Todos los carteles</option>
-          <option value="local" data-i18n="posters.filter.local">Mis carteles</option>
-        </select>
-
-        <button class="btn primary-btn" id="add-poster-btn" type="button" data-i18n="posters.addButton">
-          <i class="fas fa-plus"></i> Añadir carteles
-        </button>
-      </div>
+      <button class="btn primary-btn" id="add-poster-btn" type="button" data-i18n="posters.addButton">
+        <i class="fas fa-plus"></i> Añadir carteles
+      </button>
     </div>
 
     <div class="gallery-cta">
-      <button class="btn secondary-btn" id="cta-upload" data-i18n="posters.ctaButton"><i class="fas fa-hand-peace"></i> Deja tu huella</button>
+      <button class="btn secondary-btn" id="cta-upload" data-i18n="posters.ctaButton">
+        <i class="fas fa-hand-peace"></i> Deja tu huella
+      </button>
       <input type="file" id="poster-file" accept="image/*" multiple hidden>
-    </div>
-
-    <div id="drop-zone" class="drop-zone" aria-label="Arrastra imágenes aquí para subir" data-i18n="posters.dropzoneText">
-      Arrastra y suelta tus carteles aquí o usa el botón "Deja tu huella".
     </div>
 
     <div id="poster-gallery" class="gallery-grid" aria-live="polite"></div>
@@ -80,6 +64,10 @@
         <i class="fas fa-times"></i>
       </button>
       <img id="poster-modal-image" src="" alt="Vista ampliada del cartel" />
+      <div class="poster-modal-meta">
+        <h3 id="poster-modal-title"></h3>
+        <p id="poster-modal-author"></p>
+      </div>
     </div>
   </div>
 

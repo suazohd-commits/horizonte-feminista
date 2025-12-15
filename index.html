@@ -49,12 +49,16 @@
                     <p class="hero-footnote" data-i18n="home.hero.footnote">El feminismo cuestiona y transforma estructuras de poder para garantizar igualdad real de derechos y oportunidades.</p>
                 </div>
                 <div class="hero-media">
-                    <div class="hero-frame">
-                        <img 
-                            src="https://objetos-xlk.estaticos-marca.com/uploads/2025/03/21/16782223810779.jpeg" 
-                            srcset="https://objetos-xlk.estaticos-marca.com/uploads/2025/03/21/16782223810779.jpeg 1200w, https://objetos-xlk.estaticos-marca.com/uploads/2025/03/21/16782223810779.jpeg 800w" 
-                            sizes="(max-width: 760px) 90vw, 320px" 
-                            alt="Manifestación feminista" loading="eager">
+                    <div class="hero-photo-stack" aria-hidden="true">
+                        <figure class="hero-photo hero-photo--1 hero-photo--active">
+                            <img src="https://objetos-xlk.estaticos-marca.com/uploads/2025/03/21/16782223810779.jpeg" alt="Manifestación feminista" loading="eager">
+                        </figure>
+                        <figure class="hero-photo hero-photo--2">
+                            <img src="https://inba.gob.mx/multimedia/prensa/galerias/22031/22031-IMG_BG_POST-conversatorio_sobre_feminismo_en_ex_teresa_(1).jpeg" alt="Conversatorio feminista">
+                        </figure>
+                        <figure class="hero-photo hero-photo--3">
+                            <img src="https://www.comecso.com/wp-content/uploads/2024/10/pexels-anya-juarez-tenorio-227888521-16110854-1024x683.jpg" alt="Reunión de mujeres">
+                        </figure>
                     </div>
                 </div>
             </div>
@@ -71,27 +75,27 @@
         <div class="what-is-banner">
             <h3 data-i18n="home.concepts.bannerTitle">¿Qué es el feminismo?</h3>
             <p class="what-desc" data-i18n="home.concepts.bannerDesc">El feminismo es un movimiento social y político que lucha por la igualdad de derechos y oportunidades entre los géneros, cuestionando estructuras de poder y proponiendo cambios culturales y legales para erradicar la discriminación.</p>
-            <a href="conceptos.html" class="small-btn primary-btn" data-i18n="home.concepts.bannerCta">Leer más</a>
-        </div>
 
-        <div class="values-grid index-grid">
-            <div class="value-item text-box">
-                <div class="value-icon"><i class="fas fa-user"></i></div>
-                <h3 data-i18n="home.concepts.cardPatriarcadoTitle">Patriarcado</h3>
-                <p data-i18n="home.concepts.cardPatriarcadoBody">Sistema de dominio social en el que los hombres ostentan la mayor parte del poder.</p>
+            <div class="what-stats-grid">
+                <div class="what-stat-item">
+                    <div class="what-stat-icon"><i class="fas fa-user"></i></div>
+                    <h4 data-i18n="home.concepts.cardPatriarcadoTitle">Patriarcado</h4>
+                    <p data-i18n="home.concepts.cardPatriarcadoBody">Sistema de dominio social en el que los hombres ostentan la mayor parte del poder.</p>
+                </div>
+                <div class="what-stat-item">
+                    <div class="what-stat-icon"><i class="fas fa-building"></i></div>
+                    <h4 data-i18n="home.concepts.cardTechoTitle">Techo de Cristal</h4>
+                    <p data-i18n="home.concepts.cardTechoBody">Barrera invisible que impide a las mujeres ascender a puestos de alta dirección.</p>
+                </div>
+                <div class="what-stat-item">
+                    <div class="what-stat-icon"><i class="fas fa-layer-group"></i></div>
+                    <h4 data-i18n="home.concepts.cardInterTitle">Interseccionalidad</h4>
+                    <p data-i18n="home.concepts.cardInterBody">Análisis de cómo diversas categorías de identidad interactúan creando opresión.</p>
+                </div>
             </div>
-            <div class="value-item text-box">
-                <div class="value-icon"><i class="fas fa-building"></i></div>
-                <h3 data-i18n="home.concepts.cardTechoTitle">Techo de Cristal</h3>
-                <p data-i18n="home.concepts.cardTechoBody">Barrera invisible que impide a las mujeres ascender a puestos de alta dirección.</p>
-            </div>
-            <div class="value-item text-box">
-                <div class="value-icon"><i class="fas fa-layer-group"></i></div>
-                <h3 data-i18n="home.concepts.cardInterTitle">Interseccionalidad</h3>
-                <p data-i18n="home.concepts.cardInterBody">Análisis de cómo diversas categorías de identidad interactúan creando opresión.</p>
-            </div>
+
+            <a href="conceptos.html" class="btn primary-btn" data-i18n="home.concepts.bannerCta">Leer más</a>
         </div>
-        <a href="conceptos.html" class="btn primary-btn" style="margin-top: 50px;" data-i18n="home.concepts.ctaDetail">Ver Conceptos a Detalle</a>
     </section>
 
     <!-- Video educativo bajo conceptos -->
@@ -114,36 +118,50 @@
         <h2 data-i18n="home.waves.title">Etapas Críticas: Las Cuatro Olas (Resumen)</h2>
         <p class="section-description" data-i18n="home.waves.lead">Un vistazo a las fases clave que han marcado la lucha feminista. Para un análisis completo, haz clic en el botón.</p>
 
-        <div class="services-grid">
-            <div class="service-item">
-                <img loading="lazy" src="https://livolet.com/wp-content/uploads/2024/05/movimiento-feminista-primera-ola.jpg" alt="Primera Ola">
-                <div class="service-info">
-                    <h3 data-i18n="home.waves.card1Title">1ª Ola</h3>
-                    <p data-i18n="home.waves.card1Body">Foco en el sufragio y los derechos de propiedad (Siglos XVIII y XIX).</p>
-                </div>
+        <div class="waves-carousel" aria-label="Resumen de las cuatro olas del feminismo">
+            <button class="waves-nav waves-prev" type="button" aria-label="Ola anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="waves-track">
+                <article class="wave-slide is-active">
+                    <div class="service-info">
+                        <h3 data-i18n="home.waves.card1Title">1ª Ola</h3>
+                        <p data-i18n="home.waves.card1Body">Foco en el sufragio y los derechos de propiedad (Siglos XVIII y XIX).</p>
+                    </div>
+                </article>
+                <article class="wave-slide">
+                    <div class="service-info">
+                        <h3 data-i18n="home.waves.card2Title">2ª Ola</h3>
+                        <p data-i18n="home.waves.card2Body">Foco en la sexualidad, derechos reproductivos y roles de género (Décadas de 1960 y 70).</p>
+                    </div>
+                </article>
+                <article class="wave-slide">
+                    <div class="service-info">
+                        <h3 data-i18n="home.waves.card3Title">3ª Ola</h3>
+                        <p data-i18n="home.waves.card3Body">Cuestionamiento del 'universalismo' y enfoque en el género y la identidad (Década de 1990).</p>
+                    </div>
+                </article>
+                <article class="wave-slide">
+                    <div class="service-info">
+                        <h3 data-i18n="home.waves.card4Title">4ª Ola</h3>
+                        <p data-i18n="home.waves.card4Body">Lucha contra la violencia machista y activismo en línea (Desde 2010).</p>
+                    </div>
+                </article>
             </div>
-            <div class="service-item">
-                <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOwKEmQuj9DGBVu0cfJs0F59oRyNPdWawV3g&s" alt="Segunda Ola">
-                <div class="service-info">
-                    <h3 data-i18n="home.waves.card2Title">2ª Ola</h3>
-                    <p data-i18n="home.waves.card2Body">Foco en la sexualidad, derechos reproductivos y roles de género (Décadas de 1960 y 70).</p>
-                </div>
-            </div>
-            <div class="service-item">
-                <img loading="lazy" src="https://rincondelectura.net/wp-content/uploads/tercera-ola.jpg" alt="Tercera Ola">
-                <div class="service-info">
-                    <h3 data-i18n="home.waves.card3Title">3ª Ola</h3>
-                    <p data-i18n="home.waves.card3Body">Cuestionamiento del 'universalismo' y enfoque en el género y la identidad (Década de 1990).</p>
-                </div>
-            </div>
-            <div class="service-item">
-                <img loading="lazy" src="https://www.comecso.com/wp-content/uploads/2024/10/pexels-anya-juarez-tenorio-227888521-16110854-1024x683.jpg" alt="Cuarta Ola">
-                <div class="service-info">
-                    <h3 data-i18n="home.waves.card4Title">4ª Ola</h3>
-                    <p data-i18n="home.waves.card4Body">Lucha contra la violencia machista y activismo en línea (Desde 2010).</p>
-                </div>
-            </div>
+
+            <button class="waves-nav waves-next" type="button" aria-label="Siguiente ola">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
+
+        <div class="waves-dots" aria-hidden="true">
+            <button class="wave-dot is-active" data-index="0"></button>
+            <button class="wave-dot" data-index="1"></button>
+            <button class="wave-dot" data-index="2"></button>
+            <button class="wave-dot" data-index="3"></button>
+        </div>
+
         <a href="olas.html" class="btn secondary-btn" data-i18n="home.waves.ctaDetail">Ver Todas las Olas (Detalle)</a>
     </section>
 
@@ -181,17 +199,21 @@
     <!-- Teaser penúltimo: invita al Plan de Capacitación -->
     <section class="teaser-band" style="background-image: url('https://imagenes.elpais.com/resizer/v2/UQFNDMT6TRAGFO3A6LTX64Q4DI.jpg?auth=80dfb1f54b0ed192e04ce7002cab27e86352b4aa9b8c5cf1a88138c51e0b4560&width=1960&height=1103&smart=true');">
         <div class="teaser-content">
-            <h2 data-i18n="home.teaser.title">Plan de Capacitación</h2>
-            <p data-i18n="home.teaser.lead">Domina los conceptos clave del feminismo con módulos cortos y claros.</p>
-            <a class="btn primary-btn" id="teaser-cta" href="capacitacion.html" data-i18n="home.teaser.cta">Ir al Plan</a>
+            <div class="teaser-card">
+                <h2 data-i18n="home.teaser.title">Plan de Capacitación</h2>
+                <p data-i18n="home.teaser.lead">Domina los conceptos clave del feminismo con módulos cortos y claros.</p>
+                <a class="btn primary-btn" id="teaser-cta" href="capacitacion.html" data-i18n="home.teaser.cta">Ir al Plan</a>
+            </div>
         </div>
     </section>
 
-    <section class="teaser-band" style="background-image: url('https://static.nuso.org/cache/f0/55/f05517eaa9a68163f35fcf45de57cee9.jpg');">
+    <section class="teaser-band quiz-teaser" style="background-image: url('https://static.nuso.org/cache/f0/55/f05517eaa9a68163f35fcf45de57cee9.jpg');">
         <div class="teaser-content">
-            <h2 data-i18n="home.quiz.title">Quiz</h2>
-            <p data-i18n="home.quiz.lead">Pon a prueba lo que has aprendido sobre conceptos, olas y retos del feminismo.</p>
-            <a class="btn primary-btn" href="quiz.html" data-i18n="home.quiz.cta">Empezar Quiz</a>
+            <div class="quiz-overlay-card">
+                <h2 data-i18n="home.quiz.title">Quiz</h2>
+                <p data-i18n="home.quiz.lead">Pon a prueba lo que has aprendido sobre conceptos, olas y retos del feminismo.</p>
+                <a class="btn primary-btn" href="quiz.html" data-i18n="home.quiz.cta">Empezar Quiz</a>
+            </div>
         </div>
     </section>
 

@@ -65,11 +65,85 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroCta = document.getElementById('hero-cta');
     const teaserCta = document.getElementById('teaser-cta');
 
+    // --- Carrusel de fotos del hero (index.html) ---
+    const heroPhotos = document.querySelectorAll('.hero-photo-stack .hero-photo');
+    if (heroPhotos.length > 0) {
+        let currentHeroPhoto = 0;
+        heroPhotos[currentHeroPhoto].classList.add('hero-photo--active');
+
+        if (heroPhotos.length > 1) {
+            setInterval(() => {
+                heroPhotos[currentHeroPhoto].classList.remove('hero-photo--active');
+                currentHeroPhoto = (currentHeroPhoto + 1) % heroPhotos.length;
+                heroPhotos[currentHeroPhoto].classList.add('hero-photo--active');
+            }, 3000); // cada 3 segundos
+        }
+    }
+
+    // --- Carrusel de las Olas en el index (resumen-olas) ---
+    const waveSlides = document.querySelectorAll('#resumen-olas .wave-slide');
+    const wavePrev = document.querySelector('#resumen-olas .waves-prev');
+    const waveNext = document.querySelector('#resumen-olas .waves-next');
+    const waveDots = document.querySelectorAll('#resumen-olas .wave-dot');
+
+    if (waveSlides.length > 0) {
+        let currentWave = 0;
+
+        function updateWaveCarousel(newIndex) {
+            // limpiar estados
+            waveSlides.forEach(slide => {
+                slide.classList.remove('is-active', 'is-left', 'is-right');
+            });
+            waveDots.forEach(dot => dot.classList.remove('is-active'));
+
+            currentWave = (newIndex + waveSlides.length) % waveSlides.length;
+
+            const leftIndex = (currentWave - 1 + waveSlides.length) % waveSlides.length;
+            const rightIndex = (currentWave + 1) % waveSlides.length;
+
+            waveSlides[currentWave].classList.add('is-active');
+            waveSlides[leftIndex].classList.add('is-left');
+            waveSlides[rightIndex].classList.add('is-right');
+
+            if (waveDots[currentWave]) waveDots[currentWave].classList.add('is-active');
+        }
+
+        if (wavePrev) {
+            wavePrev.addEventListener('click', () => {
+                updateWaveCarousel(currentWave - 1);
+            });
+        }
+
+        if (waveNext) {
+            waveNext.addEventListener('click', () => {
+                updateWaveCarousel(currentWave + 1);
+            });
+        }
+
+        waveDots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+                const idx = parseInt(dot.getAttribute('data-index') || '0', 10);
+                updateWaveCarousel(idx);
+            });
+        });
+
+        // estado inicial: forzamos actualización para colocar laterales
+        updateWaveCarousel(0);
+    }
+
     // --- Elementos de Alineación (conceptos.html) ---
     const align1Btn = document.getElementById('align-1');
     const align2Btn = document.getElementById('align-2');
     const align1View = document.getElementById('concepts-align-1');
     const align2View = document.getElementById('concepts-align-2');
+
+    // --- Modal de detalle (conceptos / olas) ---
+    const detailModal = document.getElementById('detail-modal');
+    const detailModalImage = document.getElementById('detail-modal-image');
+    const detailModalTitle = document.getElementById('detail-modal-title');
+    const detailModalBody = document.getElementById('detail-modal-body');
+    const detailModalVideo = document.getElementById('detail-modal-video');
+    const detailModalClose = document.getElementById('detail-modal-close');
 
     // --- Elementos del Editor de Carteles ---
     const posterCanvas = document.getElementById('poster-canvas');
@@ -128,6 +202,102 @@ document.addEventListener('DOMContentLoaded', () => {
         langToggle.addEventListener('click', () => {
             const next = currentLang === 'es' ? 'en' : 'es';
             applyLanguage(next);
+        });
+    }
+
+    // ----------------------------------------------------
+    // --- 1.b Modal de detalle para Conceptos / Olas ---
+    // ----------------------------------------------------
+
+    function openDetailModal({ title, body, imageUrl, videoId }) {
+        if (!detailModal) return;
+
+        if (detailModalTitle) detailModalTitle.textContent = title || '';
+        if (detailModalBody) detailModalBody.textContent = body || '';
+        if (detailModalImage) {
+            if (imageUrl) {
+                detailModalImage.src = imageUrl;
+                detailModalImage.style.display = 'block';
+            } else {
+                detailModalImage.removeAttribute('src');
+                detailModalImage.style.display = 'none';
+            }
+        }
+
+        if (detailModalVideo) {
+            if (videoId) {
+                detailModalVideo.src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`;
+            } else {
+                detailModalVideo.removeAttribute('src');
+            }
+        }
+
+        detailModal.classList.add('visible');
+        document.body.classList.add('modal-open');
+    }
+
+    function closeDetailModal() {
+        if (!detailModal) return;
+        detailModal.classList.remove('visible');
+        document.body.classList.remove('modal-open');
+        if (detailModalVideo) {
+            detailModalVideo.removeAttribute('src');
+        }
+    }
+
+    if (detailModalClose) {
+        detailModalClose.addEventListener('click', closeDetailModal);
+    }
+
+    if (detailModal) {
+        const backdrop = detailModal.querySelector('.detail-modal-backdrop');
+        if (backdrop) backdrop.addEventListener('click', closeDetailModal);
+    }
+
+    document.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Escape') {
+            closeDetailModal();
+        }
+    });
+
+    // Click en tarjetas de conceptos (Alineación 1)
+    if (align1View) {
+        const conceptCards = align1View.querySelectorAll('.concept-card');
+        conceptCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('h3')?.textContent || '';
+                const body = card.querySelector('p')?.textContent || '';
+
+                let imageUrl = '';
+                const media = card.querySelector('.concept-media');
+                if (media) {
+                    const bg = window.getComputedStyle(media).backgroundImage;
+                    const match = bg && bg.startsWith('url(') ? bg.slice(4, -1).replace(/"/g, '') : '';
+                    imageUrl = match;
+                }
+
+                const videoId = card.getAttribute('data-video') || '';
+                openDetailModal({ title, body, imageUrl, videoId });
+            });
+        });
+    }
+
+    // Click en tarjetas de olas (definiciones)
+    const wavesDefinitionsContainer = document.querySelector('.wave-cards-container');
+    if (wavesDefinitionsContainer) {
+        const waveCards = wavesDefinitionsContainer.querySelectorAll('.wave-card');
+        waveCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('.wave-header h3')?.textContent || '';
+                const body = card.querySelector('.wave-content p')?.textContent || '';
+
+                let imageUrl = '';
+                const img = card.querySelector('.wave-content img');
+                if (img && img.src) imageUrl = img.src;
+
+                const videoId = card.getAttribute('data-video') || '';
+                openDetailModal({ title, body, imageUrl, videoId });
+            });
         });
     }
 
@@ -279,6 +449,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 1.d Actualizar UI del header según sesión
+    function isUserLoggedIn() {
+        let userId = '';
+        try {
+            userId = localStorage.getItem('user_id') || '';
+        } catch {}
+        return !!userId;
+    }
+
+    function requireLoginForProtectedContent() {
+        // Se usa solo para acciones de carteles; los videos usan overlays visuales.
+        if (isUserLoggedIn()) return true;
+        alert('Para acceder a este contenido, por favor inicia sesión o regístrate.');
+        window.location.href = 'login.html';
+        return false;
+    }
+
+    function addVideoLoginOverlays() {
+        if (isUserLoggedIn()) return;
+        const embeds = document.querySelectorAll('.video-embed');
+        embeds.forEach((wrap) => {
+            if (wrap.querySelector('.video-login-overlay')) return;
+            const overlay = document.createElement('div');
+            overlay.className = 'video-login-overlay';
+
+            const card = document.createElement('div');
+            card.className = 'video-login-card';
+            const titleEl = document.createElement('h3');
+            titleEl.textContent = 'Contenido disponible solo para usuarias registradas';
+            const p = document.createElement('p');
+            p.textContent = 'Inicia sesión o crea tu cuenta para acceder a este video y guardar tu avance.';
+
+            const actions = document.createElement('div');
+            actions.className = 'video-login-actions';
+
+            const loginBtn = document.createElement('a');
+            loginBtn.href = 'login.html';
+            loginBtn.className = 'btn primary-btn small-btn';
+            loginBtn.textContent = 'Iniciar sesión';
+
+            const registerBtn = document.createElement('a');
+            registerBtn.href = 'register.html';
+            registerBtn.className = 'btn secondary-btn small-btn';
+            registerBtn.textContent = 'Registrarme';
+
+            actions.appendChild(loginBtn);
+            actions.appendChild(registerBtn);
+            card.appendChild(titleEl);
+            card.appendChild(p);
+            card.appendChild(actions);
+            overlay.appendChild(card);
+            wrap.appendChild(overlay);
+        });
+    }
+
     function updateAuthUI() {
         let userName = '';
         let userId = '';
@@ -339,13 +563,13 @@ document.addEventListener('DOMContentLoaded', () => {
             accountAvatarInitial.textContent = initial;
         }
         accountModal.classList.remove('hidden');
-        accountModal.style.display = 'flex';
+        accountModal.classList.add('account-modal--open');
     }
 
     function closeAccountModal() {
         if (!accountModal) return;
         accountModal.classList.add('hidden');
-        accountModal.style.display = 'none';
+        accountModal.classList.remove('account-modal--open');
     }
 
     function logoutAndRedirect() {
@@ -382,14 +606,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Asegurar que el modal arranca oculto
-    if (accountModal) {
-        accountModal.classList.add('hidden');
-        accountModal.style.display = 'none';
-    }
-
     // Aplicar estado de sesión al cargar
     updateAuthUI();
+    addVideoLoginOverlays();
 
     const i18nTexts = {
         es: {
@@ -574,6 +793,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'posters.addButton': 'Añadir carteles',
             'posters.ctaButton': 'Deja tu huella',
             'posters.dropzoneText': 'Arrastra y suelta tus carteles aquí o usa el botón "Deja tu huella".',
+            'posters.search.placeholder': 'Buscar carteles',
+            'posters.search.clearLabel': 'Limpiar búsqueda',
+            'posters.filter.aria': 'Filtros de carteles',
 
             // auth: login / register
             'auth.login.tag': 'Bienvenida',
@@ -642,6 +864,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'posters.addButton': 'Add posters',
             'posters.ctaButton': 'Leave your mark',
             'posters.dropzoneText': 'Drag and drop your posters here or use the "Leave your mark" button.',
+            'posters.search.placeholder': 'Search posters',
+            'posters.search.clearLabel': 'Clear search',
+            'posters.filter.aria': 'Poster filters',
 
             // auth: login / register
             'auth.login.tag': 'Welcome',
@@ -1044,7 +1269,13 @@ function applyLanguage(lang) {
         if (!key) return;
         const value = textDict[key] ?? i18nTexts.es[key];
         if (!value) return;
-        el.textContent = value;
+
+        const tag = el.tagName.toLowerCase();
+        if ((tag === 'input' || tag === 'textarea') && el.hasAttribute('placeholder')) {
+            el.setAttribute('placeholder', value);
+        } else {
+            el.textContent = value;
+        }
     });
 }
     // ----------------------------------------------------
@@ -1192,27 +1423,32 @@ function applyLanguage(lang) {
     const gallery = document.getElementById('poster-gallery');
     const fileInput = document.getElementById('poster-file');
     const ctaUpload = document.getElementById('cta-upload');
-    const dropZone = document.getElementById('drop-zone');
 
     const posterSearchInput = document.getElementById('poster-search');
-    const posterSearchClear = document.getElementById('poster-search-clear');
-    const posterFilterSelect = document.getElementById('poster-filter');
     const addPosterBtn = document.getElementById('add-poster-btn');
 
     const posterModal = document.getElementById('poster-modal');
     const posterModalImage = document.getElementById('poster-modal-image');
+    const posterModalTitle = document.getElementById('poster-modal-title');
+    const posterModalAuthor = document.getElementById('poster-modal-author');
     const posterModalClose = document.getElementById('poster-modal-close');
+
+    // Lista en memoria de los carteles actuales (solo desde Supabase + subidas recientes)
+    let currentPosters = [];
 
     function renderGallery(items) {
         if (!gallery) return;
         gallery.innerHTML = '';
-        items.forEach((src, idx) => {
+        items.forEach((item, idx) => {
+            const src = item.image_url || item;
             const card = document.createElement('div');
             card.className = 'gallery-item';
             const img = document.createElement('img');
             img.src = src;
             img.alt = `Cartel ${idx+1}`;
             img.setAttribute('data-index', String(idx));
+            img.dataset.title = item.title || '';
+            img.dataset.authorName = item.author_name || '';
             const del = document.createElement('button');
             del.className = 'del-btn';
             del.type = 'button';
@@ -1220,7 +1456,9 @@ function applyLanguage(lang) {
             del.textContent = 'Eliminar';
             const meta = document.createElement('div');
             meta.className = 'meta';
-            meta.innerHTML = `<span>Cartel #${idx+1}</span><span>❤</span>`;
+            const titleText = item.title || `Cartel #${idx+1}`;
+            const authorText = item.author_name ? `Creado por ${item.author_name}` : '';
+            meta.innerHTML = `<span>${titleText}</span><span>${authorText}</span>`;
             card.appendChild(img);
             card.appendChild(del);
             card.appendChild(meta);
@@ -1228,26 +1466,22 @@ function applyLanguage(lang) {
         });
     }
 
-    function loadStored() {
-        const raw = localStorage.getItem('poster_gallery_items');
-        try { return raw ? JSON.parse(raw) : []; } catch { return []; }
-    }
-    function storeItems(items) {
-        localStorage.setItem('poster_gallery_items', JSON.stringify(items));
-    }
-
     async function loadRemotePosters() {
         if (!supabaseClient) return [];
         try {
             const { data, error } = await supabaseClient
                 .from('posters')
-                .select('image_url')
+                .select('title, author_name, image_url')
                 .order('created_at', { ascending: false })
                 .limit(100);
             if (error || !data) return [];
             return data
-                .map(row => row.image_url)
-                .filter((url) => typeof url === 'string' && url.startsWith('data:'));
+                .filter((row) => typeof row.image_url === 'string')
+                .map((row) => ({
+                    title: row.title || '',
+                    author_name: row.author_name || '',
+                    image_url: row.image_url
+                }));
         } catch (e) {
             console.warn('No se pudieron leer los carteles remotos', e);
             return [];
@@ -1268,6 +1502,12 @@ function applyLanguage(lang) {
         if (!files || !files.length) return;
         const dataUrls = await filesToDataUrls(files);
 
+        // Pedir un título para este lote de carteles
+        let customTitle = window.prompt('Ponle un nombre a tu cartel (opcional):', 'Mi cartel');
+        if (customTitle) {
+            customTitle = customTitle.trim();
+        }
+
         // Guardar en Supabase (tabla "posters") si hay sesión
         let userId = '';
         let userName = '';
@@ -1279,7 +1519,7 @@ function applyLanguage(lang) {
         if (supabaseClient && userId) {
             try {
                 const rows = dataUrls.map((url, idx) => ({
-                    title: `Cartel ${Date.now()}-${idx + 1}`,
+                    title: customTitle || `Cartel ${Date.now()}-${idx + 1}`,
                     author_name: userName || 'Usuario',
                     image_url: url,
                     tags: null
@@ -1290,63 +1530,62 @@ function applyLanguage(lang) {
             }
         }
 
-        const items = loadStored();
-        const next = dataUrls.concat(items); // más recientes primero
-        storeItems(next);
+        const newItems = dataUrls.map((url, idx) => ({
+            title: customTitle || `Cartel local ${Date.now()}-${idx + 1}`,
+            author_name: userName || '',
+            image_url: url
+        }));
+        // Añadir al inicio de la lista en memoria y re-renderizar
+        currentPosters = [...newItems, ...currentPosters];
         applyGalleryFilters();
     }
 
     function applyGalleryFilters() {
-        const allItems = loadStored();
+        const allItems = currentPosters;
         const query = (posterSearchInput?.value || '').toLowerCase().trim();
         let filtered = allItems;
 
         if (query) {
-            filtered = allItems.filter((src, idx) => {
+            filtered = allItems.filter((item, idx) => {
                 const label = `cartel ${idx+1}`;
-                return label.toLowerCase().includes(query);
+                const haystack = [
+                    label,
+                    item.title || '',
+                    item.author_name || ''
+                ].join(' ').toLowerCase();
+                return haystack.includes(query);
             });
         }
 
-        // posterFilterSelect (all/local) por ahora no cambia nada, pero se puede extender.
         renderGallery(filtered);
     }
 
     if (ctaUpload && fileInput) {
-        ctaUpload.addEventListener('click', () => fileInput.click());
+        ctaUpload.addEventListener('click', () => {
+            if (!requireLoginForProtectedContent()) return;
+            fileInput.click();
+        });
         fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
     }
 
     if (addPosterBtn && fileInput) {
-        addPosterBtn.addEventListener('click', () => fileInput.click());
-    }
-
-    if (dropZone) {
-        ['dragenter','dragover'].forEach(ev => dropZone.addEventListener(ev, (e) => { 
-            e.preventDefault(); 
-            e.stopPropagation(); 
-            dropZone.classList.add('dragover'); 
-        }));
-        ;['dragleave','drop'].forEach(ev => dropZone.addEventListener(ev, (e) => { 
-            e.preventDefault(); 
-            e.stopPropagation(); 
-            dropZone.classList.remove('dragover'); 
-        }));
-        dropZone.addEventListener('drop', (e) => {
-            const dt = e.dataTransfer;
-            if (dt && dt.files) handleFiles(dt.files);
+        addPosterBtn.addEventListener('click', () => {
+            if (!requireLoginForProtectedContent()) return;
+            fileInput.click();
         });
     }
 
-    // Inicializar galería combinando Supabase + localStorage
+    // Inicializar galería solo si hay sesión
     if (gallery) {
-        (async () => {
-            const localItems = loadStored();
-            const remoteItems = await loadRemotePosters();
-            const merged = [...remoteItems, ...localItems];
-            storeItems(merged);
-            applyGalleryFilters();
-        })();
+        if (!isUserLoggedIn()) {
+            alert('Para ver la galería de carteles, por favor inicia sesión o regístrate.');
+            window.location.href = 'login.html';
+        } else {
+            (async () => {
+                currentPosters = await loadRemotePosters();
+                applyGalleryFilters();
+            })();
+        }
     }
 
     // Borrado por delegación + abrir modal
@@ -1356,9 +1595,7 @@ function applyLanguage(lang) {
             if (delBtn) {
                 const idx = parseInt(delBtn.getAttribute('data-index') || '-1', 10);
                 if (idx < 0) return;
-                const items = loadStored();
-                items.splice(idx, 1);
-                storeItems(items);
+                currentPosters.splice(idx, 1);
                 applyGalleryFilters();
                 return;
             }
@@ -1368,6 +1605,16 @@ function applyLanguage(lang) {
                 const src = img.getAttribute('src');
                 if (!src) return;
                 posterModalImage.src = src;
+
+                const title = img.dataset.title || '';
+                const authorName = img.dataset.authorName || '';
+                if (posterModalTitle) posterModalTitle.textContent = title || '';
+                if (posterModalAuthor) {
+                    posterModalAuthor.textContent = authorName
+                        ? `Creado por ${authorName}`
+                        : '';
+                }
+
                 posterModal.classList.add('visible');
                 posterModal.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('modal-open');
@@ -1396,14 +1643,6 @@ function applyLanguage(lang) {
     });
 
     posterSearchInput?.addEventListener('input', applyGalleryFilters);
-    posterSearchClear?.addEventListener('click', () => {
-        if (!posterSearchInput) return;
-        posterSearchInput.value = '';
-        applyGalleryFilters();
-        posterSearchInput.focus();
-    });
-
-    posterFilterSelect?.addEventListener('change', applyGalleryFilters);
 
     // ----------------------------------------------------
     // --- 6.b Lógica del Quiz (quiz.html) ---
@@ -1631,6 +1870,4 @@ function applyLanguage(lang) {
             if (teaserCta) teaserCta.textContent = label;
         }
     } catch {}
-    }
-
-);
+});
