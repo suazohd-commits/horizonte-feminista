@@ -66,7 +66,7 @@
             <div class="hero-image-overlay"></div>
         </div>
     </header>
-    
+
     <section class="values-section" id="resumen-conceptos">
         <p class="section-tag" data-i18n="home.concepts.tag">Fundamentos</p>
         <h2 data-i18n="home.concepts.title">Conceptos que lo cambiaron todo (Extracto)</h2>
@@ -98,19 +98,28 @@
         </div>
     </section>
 
-    <!-- Video educativo bajo conceptos -->
-    <section class="video-section">
-        <p class="section-tag" data-i18n="home.video.tag">Video Recomendado</p>
-        <h2 data-i18n="home.video.title">¿Qué es el feminismo? (Explicación breve)</h2>
-        <p class="section-description" data-i18n="home.video.lead">Mira este video introductorio para contextualizar los conceptos clave antes de profundizar.</p>
+    <section class="learning-section" id="aprendizaje">
+        <div class="training-panel">
+            <div class="training-inner training-centered">
+                <div class="training-content">
+                    <p class="section-tag">Capacitación</p>
+                    <h2>Aprendizaje guiado</h2>
+                    <p class="section-description">Módulos cortos para construir bases sólidas: conceptos, olas, análisis y herramientas para actuar con claridad.</p>
+                </div>
 
-        <div class="video-embed">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/C49DiCdG3RA?rel=0&modestbranding=1" title="¿Qué es el feminismo?" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="training-media" aria-label="Video recomendado">
+                    <div class="video-embed training-embed">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/C49DiCdG3RA?rel=0&modestbranding=1" title="¿Qué es el feminismo?" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <p class="training-fallback">
+                        <span data-i18n="home.video.fallbackPrefix">Si el video no se reproduce,</span>
+                        <a href="https://www.youtube.com/watch?v=C49DiCdG3RA" target="_blank" rel="noopener" data-i18n="home.video.fallbackLink">ábrelo en YouTube</a>.
+                    </p>
+
+                    <a class="btn primary-btn" href="capacitacion.html">Ir al Plan</a>
+                </div>
+            </div>
         </div>
-        <p style="text-align:center; margin-top:10px;">
-            <span data-i18n="home.video.fallbackPrefix">Si el video no se reproduce,</span>
-            <a href="https://www.youtube.com/watch?v=C49DiCdG3RA" target="_blank" rel="noopener" data-i18n="home.video.fallbackLink">ábrelo en YouTube</a>.
-        </p>
     </section>
 
     <section class="featured-section page-content" id="resumen-olas" style="padding-top: 100px;">
@@ -165,6 +174,17 @@
         <a href="olas.html" class="btn secondary-btn" data-i18n="home.waves.ctaDetail">Ver Todas las Olas (Detalle)</a>
     </section>
 
+    <!-- Teaser penúltimo: invita al Plan de Capacitación -->
+    <section class="teaser-band training-plan-teaser" style="background-image: url('https://imagenes.elpais.com/resizer/v2/UQFNDMT6TRAGFO3A6LTX64Q4DI.jpg?auth=80dfb1f54b0ed192e04ce7002cab27e86352b4aa9b8c5cf1a88138c51e0b4560&width=1960&height=1103&smart=true');">
+        <div class="teaser-content">
+            <div class="teaser-card">
+                <h2 data-i18n="home.teaser.title">Plan de Capacitación</h2>
+                <p data-i18n="home.teaser.lead">Domina los conceptos clave del feminismo con módulos cortos y claros.</p>
+                <a class="btn primary-btn" id="teaser-cta" href="capacitacion.html" data-i18n="home.teaser.cta">Ir al Plan</a>
+            </div>
+        </div>
+    </section>
+
     <section class="journey-section summary-section" id="resumen-balance">
         <div class="journey-content">
             <p class="section-tag" data-i18n="home.balance.tag">Evaluación</p>
@@ -196,23 +216,14 @@
         </div>
     </section>
 
-    <!-- Teaser penúltimo: invita al Plan de Capacitación -->
-    <section class="teaser-band" style="background-image: url('https://imagenes.elpais.com/resizer/v2/UQFNDMT6TRAGFO3A6LTX64Q4DI.jpg?auth=80dfb1f54b0ed192e04ce7002cab27e86352b4aa9b8c5cf1a88138c51e0b4560&width=1960&height=1103&smart=true');">
-        <div class="teaser-content">
-            <div class="teaser-card">
-                <h2 data-i18n="home.teaser.title">Plan de Capacitación</h2>
-                <p data-i18n="home.teaser.lead">Domina los conceptos clave del feminismo con módulos cortos y claros.</p>
-                <a class="btn primary-btn" id="teaser-cta" href="capacitacion.html" data-i18n="home.teaser.cta">Ir al Plan</a>
-            </div>
-        </div>
-    </section>
-
     <section class="teaser-band quiz-teaser" style="background-image: url('https://static.nuso.org/cache/f0/55/f05517eaa9a68163f35fcf45de57cee9.jpg');">
         <div class="teaser-content">
             <div class="quiz-overlay-card">
                 <h2 data-i18n="home.quiz.title">Quiz</h2>
                 <p data-i18n="home.quiz.lead">Pon a prueba lo que has aprendido sobre conceptos, olas y retos del feminismo.</p>
-                <a class="btn primary-btn" href="quiz.html" data-i18n="home.quiz.cta">Empezar Quiz</a>
+                <div class="quiz-teaser-actions">
+                    <a class="btn primary-btn" href="quiz.html" data-i18n="home.quiz.cta">Empezar Quiz</a>
+                </div>
             </div>
         </div>
     </section>

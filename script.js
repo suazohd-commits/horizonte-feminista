@@ -164,6 +164,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('register-form');
     const registerError = document.getElementById('register-error');
 
+    // --- Elementos de contacto (contacto.html) ---
+    const contactForm = document.getElementById('contact-form');
+    const contactStatus = document.getElementById('contact-status');
+    const contactSubject = document.getElementById('contact-subject');
+    const contactMessage = document.getElementById('contact-message');
+    const contactInterest = document.getElementById('contact-interest');
+
     // ----------------------------------------------------
     // --- 1. Lógica del Tema (Modo Claro/Oscuro PERSISTENTE) ---
     // ----------------------------------------------------
@@ -448,6 +455,10 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', handleLogin);
     }
 
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactSubmit);
+    }
+
     // 1.d Actualizar UI del header según sesión
     function isUserLoggedIn() {
         let userId = '';
@@ -463,6 +474,77 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Para acceder a este contenido, por favor inicia sesión o regístrate.');
         window.location.href = 'login.html';
         return false;
+    }
+
+    function requireLoginForContactPage() {
+        const path = (window.location && window.location.pathname) ? window.location.pathname : '';
+        if (!path.endsWith('contacto.html')) return;
+        if (isUserLoggedIn()) return;
+
+        alert('Para participar y enviar mensajes, por favor inicia sesión o regístrate.');
+        window.location.href = 'login.html';
+    }
+
+    async function handleContactSubmit(event) {
+        event.preventDefault();
+        if (!contactForm) return;
+
+        let userId = '';
+        try {
+            userId = localStorage.getItem('user_id') || '';
+        } catch {}
+
+        if (!userId) {
+            requireLoginForProtectedContent();
+            return;
+        }
+
+        const subject = (contactSubject && contactSubject.value ? contactSubject.value.trim() : '');
+        const message = (contactMessage && contactMessage.value ? contactMessage.value.trim() : '');
+        const interested = !!(contactInterest && contactInterest.checked);
+
+        if (contactStatus) contactStatus.textContent = '';
+
+        if (!subject || !message) {
+            if (contactStatus) contactStatus.textContent = 'Completa el asunto y el mensaje.';
+            return;
+        }
+
+        if (!supabaseClient) {
+            if (contactStatus) contactStatus.textContent = 'Error: Supabase no está configurado.';
+            return;
+        }
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+        if (contactStatus) contactStatus.textContent = 'Enviando…';
+
+        try {
+            const { error } = await supabaseClient
+                .from('contact_messages')
+                .insert({
+                    user_id: userId,
+                    subject,
+                    message,
+                    interested_march: interested
+                });
+
+            if (error) {
+                if (contactStatus) contactStatus.textContent = error.message || 'No se pudo enviar el mensaje.';
+                if (submitBtn) submitBtn.disabled = false;
+                return;
+            }
+
+            if (contactStatus) contactStatus.textContent = 'Mensaje enviado. ¡Gracias por participar!';
+            if (contactSubject) contactSubject.value = '';
+            if (contactMessage) contactMessage.value = '';
+            if (contactInterest) contactInterest.checked = false;
+        } catch (err) {
+            console.error('Error enviando contacto:', err);
+            if (contactStatus) contactStatus.textContent = 'Ocurrió un error al enviar tu mensaje.';
+        } finally {
+            if (submitBtn) submitBtn.disabled = false;
+        }
     }
 
     function addVideoLoginOverlays() {
@@ -609,6 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aplicar estado de sesión al cargar
     updateAuthUI();
     addVideoLoginOverlays();
+    requireLoginForContactPage();
 
     const i18nTexts = {
         es: {

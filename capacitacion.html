@@ -33,39 +33,38 @@
     </nav>
 
     <section class="video-section page-content">
-        <p class="section-tag">Plan de Capacitación</p>
-        <h2>Todos los conceptos, paso a paso</h2>
-        <p class="section-description">Explora los módulos en el menú de la izquierda y mira el contenido a la derecha. Cambia de módulo cuando quieras.</p>
+        <div class="training-panel">
+            <div class="training-inner training-with-sidebar">
+                <aside class="video-sidebar training-sidebar">
+                    <h3>Módulos</h3>
+                    <ul class="video-modules" id="video-modules">
+                        <li class="video-module-item active"><button type="button" data-video="C49DiCdG3RA" data-title="¿Qué es el feminismo?">1 · ¿Qué es el feminismo?</button></li>
+                        <li class="video-module-item"><button type="button" data-video="Zpvnh8WyAgc" data-title="Patriarcado">2 · Patriarcado</button></li>
+                        <li class="video-module-item"><button type="button" data-video="NPgs3bLZvCs" data-title="Interseccionalidad">3 · Interseccionalidad</button></li>
+                        <li class="video-module-item"><button type="button" data-video="kvkrAHeQ9qw" data-title="Techo de cristal">4 · Techo de cristal</button></li>
+                        <li class="video-module-separator" aria-hidden="true">Las Olas</li>
+                        <li class="video-module-item"><button type="button" data-video="rJrD-bJUwcY" data-title="Primera ola">O1 · Primera ola</button></li>
+                        <li class="video-module-item"><button type="button" data-video="_6DFvFHZaiE" data-title="Segunda ola">O2 · Segunda ola</button></li>
+                        <li class="video-module-item"><button type="button" data-video="Pvz6BNt4tVk" data-title="Tercera ola">O3 · Tercera ola</button></li>
+                        <li class="video-module-item"><button type="button" data-video="2DcncqjeI1w" data-title="Cuarta ola">O4 · Cuarta ola</button></li>
+                    </ul>
+                </aside>
 
-        <div class="video-layout">
-            <aside class="video-sidebar">
-                <h3>Módulos</h3>
-                <ul class="video-modules" id="video-modules">
-                    <!-- Bloque: Conceptos -->
-                    <li class="video-module-item active"><button type="button" data-video="C49DiCdG3RA" data-title="¿Qué es el feminismo?">1 · ¿Qué es el feminismo?</button></li>
-                    <li class="video-module-item"><button type="button" data-video="Zpvnh8WyAgc" data-title="Patriarcado">2 · Patriarcado</button></li>
-                    <li class="video-module-item"><button type="button" data-video="NPgs3bLZvCs" data-title="Interseccionalidad">3 · Interseccionalidad</button></li>
-                    <li class="video-module-item"><button type="button" data-video="kvkrAHeQ9qw" data-title="Techo de cristal">4 · Techo de cristal</button></li>
-
-                    <!-- Separador visual para las olas -->
-                    <li class="video-module-separator" aria-hidden="true">Las Olas</li>
-
-                    <!-- Bloque: Las Olas (mismos videos que las tarjetas de olas.html) -->
-                    <li class="video-module-item"><button type="button" data-video="rJrD-bJUwcY" data-title="Primera ola">O1 · Primera ola</button></li>
-                    <li class="video-module-item"><button type="button" data-video="_6DFvFHZaiE" data-title="Segunda ola">O2 · Segunda ola</button></li>
-                    <li class="video-module-item"><button type="button" data-video="Pvz6BNt4tVk" data-title="Tercera ola">O3 · Tercera ola</button></li>
-                    <li class="video-module-item"><button type="button" data-video="2DcncqjeI1w" data-title="Cuarta ola">O4 · Cuarta ola</button></li>
-                </ul>
-            </aside>
-
-            <div>
-                <div class="video-embed">
-                    <iframe id="training-player" src="https://www.youtube-nocookie.com/embed/C49DiCdG3RA?rel=0&modestbranding=1" title="¿Qué es el feminismo?" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="training-media">
+                    <div class="video-embed training-embed">
+                        <iframe id="training-player" src="https://www.youtube-nocookie.com/embed/C49DiCdG3RA?rel=0&modestbranding=1" title="¿Qué es el feminismo?" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <p class="training-fallback">
+                        Si el video no se reproduce,
+                        <a id="video-fallback-link" href="https://www.youtube.com/watch?v=C49DiCdG3RA" target="_blank" rel="noopener">ábrelo en YouTube</a>.
+                    </p>
                 </div>
-                <p style="text-align:center; margin-top:10px;">
-                    Si el video no se reproduce,
-                    <a id="video-fallback-link" href="https://www.youtube.com/watch?v=C49DiCdG3RA" target="_blank" rel="noopener">ábrelo en YouTube</a>.
-                </p>
+
+                <div class="training-content">
+                    <p class="section-tag">Capacitación</p>
+                    <h2>Aprendizaje guiado</h2>
+                    <p class="section-description">Módulos cortos para construir bases sólidas: conceptos, olas, análisis y herramientas para actuar con claridad.</p>
+                </div>
             </div>
         </div>
     </section>
